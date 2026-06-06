@@ -34,6 +34,7 @@ const config = {
           showLastUpdateAuthor: false,
         },
         blog: false,
+        pages: false,
         theme: {
           customCss: './src/css/custom.css',
         },
