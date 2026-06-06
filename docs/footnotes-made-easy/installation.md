@@ -4,7 +4,7 @@ Footnotes Made Easy can be installed directly from the WordPress dashboard or ma
 
 ## Method 1 — Install from WordPress dashboard 
 
-<img width="1649" height="806" alt="Add Plugins ‹ Search Front — WordPress - Google Ch" src="https://github.com/user-attachments/assets/35d24f6e-112a-43b2-86f7-42a0cdbd10f2" />
+<img width="1640" height="624" alt="rererere" src="https://github.com/user-attachments/assets/e1200b8e-aeaf-4277-9c60-a2e4e03cd07e" />
 
 1. Log in to your WordPress admin dashboard
 2. Go to **Plugins → Add New**
