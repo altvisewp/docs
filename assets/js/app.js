@@ -1,6 +1,5 @@
 /* AltviseWP Docs — app.js */
-( function () {
-  'use strict';
+document.addEventListener( 'DOMContentLoaded', function () {
 
   // ── Search index ────────────────────────────────────────
   // Generated from all doc pages — titles, sections, and excerpts
@@ -184,4 +183,4 @@
     } );
   } );
 
-} )();
+} );
