@@ -320,7 +320,6 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
         <h1>{title} {pro_badge}</h1>
         <div class="doc-meta">
           <span>{section}</span>
-          <a href="https://github.com/altvisewp/docs/edit/main/" target="_blank" rel="noopener" style="color:var(--text-3)">Edit this page on GitHub</a>
         </div>
         {content_html}
         {nav_html}
