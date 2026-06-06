@@ -215,6 +215,13 @@ html:not([data-theme]) .icon-moon { display: block; }
   display: flex;
   align-items: center;
   gap: 6px;
+  user-select: none;
+}
+.sidenav__arrow {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--text-3);
+  transition: transform 0.15s;
 }
 .sidenav__sublabel {
   font-size: 11px;

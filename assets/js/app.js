@@ -171,13 +171,46 @@
     } );
   }
 
-  // ── Active nav link ───────────────────────────────────────
-  const currentPath = window.location.pathname.replace( /\/$/, '' );
+  // ── Active nav link + collapsible groups ─────────────────
+  var currentPath = window.location.pathname.replace( /\/$/, '' );
+
+  // Mark active link
   document.querySelectorAll( '.sidenav__link' ).forEach( function ( link ) {
-    const href = link.getAttribute( 'href' );
+    var href = link.getAttribute( 'href' );
     if ( href && currentPath.endsWith( href.replace( '.html', '' ) ) ) {
       link.classList.add( 'active' );
     }
+  } );
+
+  // Collapsible groups — collapse groups that have no active link
+  document.querySelectorAll( '.sidenav__group' ).forEach( function ( group ) {
+    var label = group.querySelector( '.sidenav__label' );
+    if ( ! label ) return;
+
+    var hasActive = group.querySelector( '.sidenav__link.active' );
+    var items     = group.querySelectorAll( '.sidenav__link, .sidenav__sublabel' );
+
+    // Add toggle arrow to label
+    var arrow = document.createElement( 'span' );
+    arrow.className = 'sidenav__arrow';
+    arrow.innerHTML = hasActive ? '▾' : '▸';
+    label.appendChild( arrow );
+    label.style.cursor = 'pointer';
+
+    // Collapse if not active
+    if ( ! hasActive ) {
+      items.forEach( function ( el ) { el.style.display = 'none'; } );
+      group.classList.add( 'collapsed' );
+    }
+
+    // Toggle on click
+    label.addEventListener( 'click', function () {
+      var collapsed = group.classList.toggle( 'collapsed' );
+      arrow.innerHTML = collapsed ? '▸' : '▾';
+      items.forEach( function ( el ) {
+        el.style.display = collapsed ? 'none' : '';
+      } );
+    } );
   } );
 
 } )();
