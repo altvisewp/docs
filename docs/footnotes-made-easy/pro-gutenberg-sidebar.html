@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gutenberg Sidebar — AltviseWP Docs</title>
+<meta name="description" content="Gutenberg Sidebar documentation for AltviseWP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="../../index.html" class="topbar__logo">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
+      <span>AltviseWP <strong>Docs</strong></span>
+    </a>
+    <div class="topbar__search">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-input" placeholder="Search docs..." autocomplete="off" spellcheck="false">
+      <kbd>⌘K</kbd>
+    </div>
+    <nav class="topbar__nav">
+      <a href="https://altvisewp.com" target="_blank" rel="noopener">altvisewp.com</a>
+      <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11a3 3 0 100-6 3 3 0 000 6zm0 1a4 4 0 100-8 4 4 0 000 8zM8 0a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 0zm0 13a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 13zM2.343 2.343a.5.5 0 01.707 0l.707.707a.5.5 0 11-.707.707l-.707-.707a.5.5 0 010-.707zm9.9 9.9a.5.5 0 01.707 0l.707.707a.5.5 0 01-.707.707l-.707-.707a.5.5 0 010-.707zM0 8a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 010 8zm13 0a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 0113 8zM2.343 13.657a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707.707a.5.5 0 01-.707 0zm9.9-9.9a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707-.707a.5.5 0 01-.707 0z"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.768.768 0 01.08.858 7.208 7.208 0 00-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 01.81.316.733.733 0 01-.031.893A8.349 8.349 0 018.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 016 .278z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-modal">
+    <div class="search-modal__input-wrap">
+      <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-modal-input" placeholder="Search documentation..." autocomplete="off">
+      <button id="search-close" aria-label="Close search">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+    <div class="search-footer"><span>↑↓ navigate</span><span>↵ select</span><span>ESC close</span></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__inner">
+      <nav class="sidenav">
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy</div>
+          <a href="../../docs/footnotes-made-easy/index.html" class="sidenav__link">Overview</a>
+          <a href="../../docs/footnotes-made-easy/installation.html" class="sidenav__link">Installation</a>
+          <a href="../../docs/footnotes-made-easy/getting-started.html" class="sidenav__link">Getting Started</a>
+          <div class="sidenav__sublabel">Settings</div>
+          <a href="../../docs/footnotes-made-easy/settings/display.html" class="sidenav__link sidenav__link--sub">Display</a>
+          <a href="../../docs/footnotes-made-easy/settings/behaviour.html" class="sidenav__link sidenav__link--sub">Behaviour</a>
+          <a href="../../docs/footnotes-made-easy/settings/suppress.html" class="sidenav__link sidenav__link--sub">Suppress</a>
+          <a href="../../docs/footnotes-made-easy/settings/advanced.html" class="sidenav__link sidenav__link--sub">Advanced</a>
+          <a href="../../docs/footnotes-made-easy/tools.html" class="sidenav__link">Tools</a>
+          <a href="../../docs/footnotes-made-easy/multisite.html" class="sidenav__link">Multisite</a>
+          <a href="../../docs/footnotes-made-easy/faq.html" class="sidenav__link">FAQ</a>
+          <a href="../../docs/footnotes-made-easy/changelog.html" class="sidenav__link">Changelog</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy <span class="badge-pro">Pro</span></div>
+          <a href="../../docs/footnotes-made-easy/pro-installation.html" class="sidenav__link">Installation</a>
+          <a href="../../docs/footnotes-made-easy/pro-license-activation.html" class="sidenav__link">License Activation</a>
+          <div class="sidenav__sublabel">Citations</div>
+          <a href="../../docs/footnotes-made-easy/pro-citations-overview.html" class="sidenav__link sidenav__link--sub">Overview</a>
+          <a href="../../docs/footnotes-made-easy/pro-citations-source-types.html" class="sidenav__link sidenav__link--sub">Source Types</a>
+          <a href="../../docs/footnotes-made-easy/pro-citations-styles.html" class="sidenav__link sidenav__link--sub">Citation Styles</a>
+          <a href="../../docs/footnotes-made-easy/pro-library.html" class="sidenav__link">Footnote Library</a>
+          <a href="../../docs/footnotes-made-easy/pro-gutenberg-sidebar.html" class="sidenav__link">Gutenberg Sidebar</a>
+          <a href="../../docs/footnotes-made-easy/pro-faq.html" class="sidenav__link">FAQ</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Account</div>
+          <a href="../../docs/account/managing-your-license.html" class="sidenav__link">Managing Your License</a>
+          <a href="../../docs/account/billing-and-renewals.html" class="sidenav__link">Billing and Renewals</a>
+          <a href="../../docs/account/refunds.html" class="sidenav__link">Refunds</a>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="main" id="main-content">
+    <div class="page-content">
+      <div class="doc-content">
+        <nav class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><a href="index.html">Footnotes Made Easy</a><span class="breadcrumb__sep">/</span><span>Pro</span><span class="breadcrumb__sep">/</span><span>Gutenberg Sidebar</span></nav>
+        <h1>Gutenberg Sidebar <span class="badge-pro">Pro</span></h1>
+        <div class="doc-meta">
+          <span>Footnotes Made Easy Pro</span>
+          <a href="https://github.com/altvisewp/docs/edit/main/docs/" target="_blank" rel="noopener" style="color:var(--text-3)">Edit this page</a>
+        </div>
+        
+<p>The Gutenberg sidebar panel lets you manage all footnotes in a post from the block editor — without switching tabs, scrolling through content, or editing raw text markers.</p>
+
+<h2>Opening the sidebar panel</h2>
+
+<ol>
+<li>Open a post in the block editor (Gutenberg)</li>
+<li>Click the <strong>Settings</strong> icon (⚙) in the top-right corner of the editor to open the sidebar, if it is not already open</li>
+<li>Click the <strong>Footnotes</strong> tab in the sidebar panel list</li>
+</ol>
+
+<p>If you do not see the Footnotes panel, confirm that Footnotes Made Easy Pro is installed, active, and licensed.</p>
+
+<h2>What the sidebar shows</h2>
+
+<p>The sidebar panel displays all footnotes in the current post in the order they appear in the content. Each footnote entry shows:</p>
+
+<ul>
+<li>The footnote number</li>
+<li>A preview of the footnote text or citation</li>
+<li>Edit and delete actions</li>
+</ul>
+
+<h2>Adding a footnote from the sidebar</h2>
+
+<ol>
+<li>Place your cursor in the post content at the point where you want the footnote marker</li>
+<li>In the sidebar, click <strong>Add footnote</strong></li>
+<li>Enter the footnote text in the text area, or switch to <strong>Citation mode</strong> to create a formatted citation</li>
+<li>Click <strong>Insert</strong></li>
+</ol>
+
+<p>The footnote marker <code>(( ))</code> is inserted at the cursor position and the footnote appears in the sidebar list.</p>
+
+<h2>Editing a footnote</h2>
+
+<ol>
+<li>In the sidebar, click the <strong>Edit</strong> icon next to the footnote you want to change</li>
+<li>Edit the footnote text or citation fields</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+
+<p>Changes are reflected immediately in the footnote list and will be visible on the published post.</p>
+
+<h2>Deleting a footnote</h2>
+
+<ol>
+<li>In the sidebar, click the <strong>Delete</strong> icon next to the footnote you want to remove</li>
+<li>Confirm the deletion</li>
+</ol>
+
+<p>Deleting a footnote from the sidebar removes both the marker from the content and the entry from the footnotes list.</p>
+
+<h2>Citation mode</h2>
+
+<p>When citation mode is enabled in the sidebar panel, the footnote entry form expands to show structured citation fields — source type, author, title, year, and other relevant fields depending on the source type.</p>
+
+<p><strong>To use citation mode:</strong></p>
+
+<ol>
+<li>Click <strong>Add footnote</strong> in the sidebar</li>
+<li>Toggle <strong>Citation mode</strong> on</li>
+<li>Select the source type from the dropdown</li>
+<li>Fill in the citation fields</li>
+<li>Optionally paste a DOI or ISBN and click <strong>Fetch</strong> to auto-populate the fields</li>
+<li>Click <strong>Insert</strong></li>
+</ol>
+
+<p>The citation is formatted according to the default citation style set in <strong>Footnotes Settings → Citations</strong>, unless overridden at the post level.</p>
+
+<p><a href="pro-citations-overview.md">Learn more about Citations →</a></p>
+
+<h2>Inserting from the Library</h2>
+
+<ol>
+<li>Click <strong>Add footnote</strong> in the sidebar</li>
+<li>Click <strong>Insert from Library</strong></li>
+<li>Search for your saved footnote by title or content</li>
+<li>Click <strong>Insert</strong> next to the entry</li>
+</ol>
+
+<p>The Library entry's content is inserted as a new footnote at the current cursor position.</p>
+
+<p><a href="pro-library.md">Learn more about the Footnote Library →</a></p>
+
+<h2>Reordering footnotes</h2>
+
+<p>Footnote numbering is determined by the order the markers appear in the post content — not by their order in the sidebar. To change the order of footnotes, move the <code>(( ))</code> markers in the content itself.</p>
+
+<h2>Post-level citation style override</h2>
+
+<p>You can override the site-wide default citation style for an individual post from the sidebar:</p>
+
+<ol>
+<li>Open the Footnotes sidebar panel</li>
+<li>In the <strong>Post settings</strong> section, select a citation style from the <strong>Override style</strong> dropdown</li>
+<li>This style will be used for all citations in this post, regardless of the site-wide default</li>
+</ol>
+
+<h2>Sidebar not appearing</h2>
+
+<p>If the Footnotes panel does not appear in the sidebar:</p>
+
+<ul>
+<li>Confirm that Footnotes Made Easy Pro is active and licensed</li>
+<li>Confirm that you are editing a post or page (the sidebar is not available on custom post types that have not been configured to support it)</li>
+<li>Check that the panel has not been hidden — click the three-dot menu (⋮) at the top of the sidebar and look for Footnotes in the panel list</li>
+<li>Refresh the page and try again</li>
+</ul>
+
+        <div class="doc-nav"><a href="pro-library.html" class="doc-nav__link"><span class="doc-nav__label">← Previous</span><span class="doc-nav__title">Footnote Library</span></a><a href="pro-faq.html" class="doc-nav__link doc-nav__link--next"><span class="doc-nav__label">Next →</span><span class="doc-nav__title">Pro FAQ</span></a></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__inner">
+        <span>© 2026 AltviseWP, LLC</span>
+        <div class="footer__links">
+          <a href="https://altvisewp.com" target="_blank" rel="noopener">Website</a>
+          <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+          <a href="https://altvisewp.com/privacy/" target="_blank" rel="noopener">Privacy</a>
+          <a href="https://altvisewp.com/terms/" target="_blank" rel="noopener">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script src="../../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Billing and Renewals — AltviseWP Docs</title>
+<meta name="description" content="Billing and Renewals documentation for AltviseWP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="../index.html" class="topbar__logo">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
+      <span>AltviseWP <strong>Docs</strong></span>
+    </a>
+    <div class="topbar__search">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-input" placeholder="Search docs..." autocomplete="off" spellcheck="false">
+      <kbd>⌘K</kbd>
+    </div>
+    <nav class="topbar__nav">
+      <a href="https://altvisewp.com" target="_blank" rel="noopener">altvisewp.com</a>
+      <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11a3 3 0 100-6 3 3 0 000 6zm0 1a4 4 0 100-8 4 4 0 000 8zM8 0a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 0zm0 13a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 13zM2.343 2.343a.5.5 0 01.707 0l.707.707a.5.5 0 11-.707.707l-.707-.707a.5.5 0 010-.707zm9.9 9.9a.5.5 0 01.707 0l.707.707a.5.5 0 01-.707.707l-.707-.707a.5.5 0 010-.707zM0 8a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 010 8zm13 0a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 0113 8zM2.343 13.657a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707.707a.5.5 0 01-.707 0zm9.9-9.9a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707-.707a.5.5 0 01-.707 0z"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.768.768 0 01.08.858 7.208 7.208 0 00-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 01.81.316.733.733 0 01-.031.893A8.349 8.349 0 018.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 016 .278z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-modal">
+    <div class="search-modal__input-wrap">
+      <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-modal-input" placeholder="Search documentation..." autocomplete="off">
+      <button id="search-close" aria-label="Close search">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+    <div class="search-footer"><span>↑↓ navigate</span><span>↵ select</span><span>ESC close</span></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__inner">
+      <nav class="sidenav">
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy</div>
+          <a href="../docs/footnotes-made-easy/index.html" class="sidenav__link">Overview</a>
+          <a href="../docs/footnotes-made-easy/installation.html" class="sidenav__link">Installation</a>
+          <a href="../docs/footnotes-made-easy/getting-started.html" class="sidenav__link">Getting Started</a>
+          <div class="sidenav__sublabel">Settings</div>
+          <a href="../docs/footnotes-made-easy/settings/display.html" class="sidenav__link sidenav__link--sub">Display</a>
+          <a href="../docs/footnotes-made-easy/settings/behaviour.html" class="sidenav__link sidenav__link--sub">Behaviour</a>
+          <a href="../docs/footnotes-made-easy/settings/suppress.html" class="sidenav__link sidenav__link--sub">Suppress</a>
+          <a href="../docs/footnotes-made-easy/settings/advanced.html" class="sidenav__link sidenav__link--sub">Advanced</a>
+          <a href="../docs/footnotes-made-easy/tools.html" class="sidenav__link">Tools</a>
+          <a href="../docs/footnotes-made-easy/multisite.html" class="sidenav__link">Multisite</a>
+          <a href="../docs/footnotes-made-easy/faq.html" class="sidenav__link">FAQ</a>
+          <a href="../docs/footnotes-made-easy/changelog.html" class="sidenav__link">Changelog</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy <span class="badge-pro">Pro</span></div>
+          <a href="../docs/footnotes-made-easy/pro-installation.html" class="sidenav__link">Installation</a>
+          <a href="../docs/footnotes-made-easy/pro-license-activation.html" class="sidenav__link">License Activation</a>
+          <div class="sidenav__sublabel">Citations</div>
+          <a href="../docs/footnotes-made-easy/pro-citations-overview.html" class="sidenav__link sidenav__link--sub">Overview</a>
+          <a href="../docs/footnotes-made-easy/pro-citations-source-types.html" class="sidenav__link sidenav__link--sub">Source Types</a>
+          <a href="../docs/footnotes-made-easy/pro-citations-styles.html" class="sidenav__link sidenav__link--sub">Citation Styles</a>
+          <a href="../docs/footnotes-made-easy/pro-library.html" class="sidenav__link">Footnote Library</a>
+          <a href="../docs/footnotes-made-easy/pro-gutenberg-sidebar.html" class="sidenav__link">Gutenberg Sidebar</a>
+          <a href="../docs/footnotes-made-easy/pro-faq.html" class="sidenav__link">FAQ</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Account</div>
+          <a href="../docs/account/managing-your-license.html" class="sidenav__link">Managing Your License</a>
+          <a href="../docs/account/billing-and-renewals.html" class="sidenav__link">Billing and Renewals</a>
+          <a href="../docs/account/refunds.html" class="sidenav__link">Refunds</a>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="main" id="main-content">
+    <div class="page-content">
+      <div class="doc-content">
+        <nav class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><span>Account</span><span class="breadcrumb__sep">/</span><span>Billing and Renewals</span></nav>
+        <h1>Billing and Renewals </h1>
+        <div class="doc-meta">
+          <span>Account</span>
+          <a href="https://github.com/altvisewp/docs/edit/main/docs/" target="_blank" rel="noopener" style="color:var(--text-3)">Edit this page</a>
+        </div>
+        
+<p>This page covers everything related to payments, invoices, and license renewals for AltviseWP products.</p>
+
+<h2>Payment methods</h2>
+
+<p>AltviseWP accepts the following payment methods:</p>
+
+<ul>
+<li><strong>Credit and debit cards</strong> — Visa, Mastercard, American Express, Discover (processed via Stripe)</li>
+<li><strong>PayPal</strong> — pay with your PayPal balance or a card linked to your PayPal account</li>
+</ul>
+
+<p>Payment details are handled securely by Stripe and PayPal. AltviseWP does not store your full card details.</p>
+
+<h2>Currencies</h2>
+
+<p>All prices are displayed and charged in <strong>United States Dollars (USD)</strong>.</p>
+
+<h2>Invoices and receipts</h2>
+
+<p>A payment receipt is sent automatically to the email address used at checkout immediately after each successful payment.</p>
+
+<p>To download a formal invoice:</p>
+
+<ol>
+<li>Log in to <a href="https://altvisewp.com/my-account/">altvisewp.com/my-account/</a></li>
+<li>Go to <strong>My Account → Orders</strong></li>
+<li>Click <strong>View</strong> next to the order you need</li>
+<li>Click <strong>Download invoice</strong></li>
+</ol>
+
+<p>Invoices include your billing name, address, and VAT/tax number if provided at checkout.</p>
+
+<h2>Annual license renewals</h2>
+
+<p>Annual licenses renew automatically on the anniversary of your original purchase date.</p>
+
+<p><strong>Before your renewal:</strong></p>
+<ul>
+<li>You will receive a reminder email 7 days before the renewal date</li>
+<li>The renewal will be charged to the same payment method used for the original purchase</li>
+</ul>
+
+<p><strong>On the renewal date:</strong></p>
+<ul>
+<li>If the renewal succeeds, your license expiry date extends by one year and you continue to receive updates and support without interruption</li>
+<li>If the renewal fails (for example, due to an expired card), you will receive an email notification with a link to update your payment details. Your license will remain active for a short grace period while you resolve the payment issue.</li>
+</ul>
+
+<h2>Updating your payment method</h2>
+
+<p>To update the card or PayPal account used for renewals:</p>
+
+<ol>
+<li>Log in to <a href="https://altvisewp.com/my-account/">altvisewp.com/my-account/</a></li>
+<li>Go to <strong>My Account → Payment Methods</strong></li>
+<li>Add a new payment method or update the existing one</li>
+<li>Set the new method as the default for subscriptions</li>
+</ol>
+
+<h2>Cancelling auto-renewal</h2>
+
+<p>You can cancel auto-renewal at any time before the next renewal date. Your license continues to work until the current expiry date.</p>
+
+<ol>
+<li>Log in to <a href="https://altvisewp.com/my-account/">altvisewp.com/my-account/</a></li>
+<li>Go to <strong>My Account → Subscriptions</strong></li>
+<li>Click <strong>Cancel</strong> next to the subscription</li>
+<li>Confirm</li>
+</ol>
+
+<p>See <a href="managing-your-license.md">Managing Your License</a> for full details on what happens after expiry.</p>
+
+<h2>Lifetime licenses</h2>
+
+<p>Lifetime licenses are a one-time purchase with no recurring charges. There is no renewal process and no subscription to manage. A lifetime license entitles you to all future updates to the purchased product for the lifetime of the product's availability.</p>
+
+<h2>Taxes</h2>
+
+<p>Prices shown on the AltviseWP website are exclusive of tax. Applicable sales tax, VAT, or GST may be added at checkout depending on your billing location. Tax is calculated automatically based on the billing address you provide.</p>
+
+<p>If your organisation is VAT-registered, enter your VAT number at checkout to have it included on your invoice.</p>
+
+<h2>Failed payments</h2>
+
+<p>If a payment fails:</p>
+
+<ol>
+<li>You will receive an email notification explaining the issue</li>
+<li>Your subscription will enter a short retry period during which we attempt to process the payment again automatically</li>
+<li>If the payment continues to fail, your subscription will be placed on hold and your license may expire</li>
+<li>Update your payment method in <strong>My Account → Payment Methods</strong> to resolve the issue</li>
+</ol>
+
+<p>If you believe a payment failure was made in error, contact us at <a href="mailto:billing@altvisewp.com">billing@altvisewp.com</a>.</p>
+
+<h2>Billing disputes</h2>
+
+<p>If you believe you have been charged incorrectly, contact us at <a href="mailto:billing@altvisewp.com">billing@altvisewp.com</a> before initiating a chargeback with your bank or card issuer. We will investigate and resolve the issue promptly. Chargebacks initiated without prior contact may result in account suspension.</p>
+
+        <div class="doc-nav"><a href="managing-your-license.html" class="doc-nav__link"><span class="doc-nav__label">← Previous</span><span class="doc-nav__title">Managing Your License</span></a><a href="refunds.html" class="doc-nav__link doc-nav__link--next"><span class="doc-nav__label">Next →</span><span class="doc-nav__title">Refunds</span></a></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__inner">
+        <span>© 2026 AltviseWP, LLC</span>
+        <div class="footer__links">
+          <a href="https://altvisewp.com" target="_blank" rel="noopener">Website</a>
+          <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+          <a href="https://altvisewp.com/privacy/" target="_blank" rel="noopener">Privacy</a>
+          <a href="https://altvisewp.com/terms/" target="_blank" rel="noopener">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

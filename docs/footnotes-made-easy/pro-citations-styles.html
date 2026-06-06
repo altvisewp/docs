@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citation Styles — AltviseWP Docs</title>
+<meta name="description" content="Citation Styles documentation for AltviseWP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="../../index.html" class="topbar__logo">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
+      <span>AltviseWP <strong>Docs</strong></span>
+    </a>
+    <div class="topbar__search">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-input" placeholder="Search docs..." autocomplete="off" spellcheck="false">
+      <kbd>⌘K</kbd>
+    </div>
+    <nav class="topbar__nav">
+      <a href="https://altvisewp.com" target="_blank" rel="noopener">altvisewp.com</a>
+      <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11a3 3 0 100-6 3 3 0 000 6zm0 1a4 4 0 100-8 4 4 0 000 8zM8 0a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 0zm0 13a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 13zM2.343 2.343a.5.5 0 01.707 0l.707.707a.5.5 0 11-.707.707l-.707-.707a.5.5 0 010-.707zm9.9 9.9a.5.5 0 01.707 0l.707.707a.5.5 0 01-.707.707l-.707-.707a.5.5 0 010-.707zM0 8a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 010 8zm13 0a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 0113 8zM2.343 13.657a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707.707a.5.5 0 01-.707 0zm9.9-9.9a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707-.707a.5.5 0 01-.707 0z"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.768.768 0 01.08.858 7.208 7.208 0 00-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 01.81.316.733.733 0 01-.031.893A8.349 8.349 0 018.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 016 .278z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-modal">
+    <div class="search-modal__input-wrap">
+      <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-modal-input" placeholder="Search documentation..." autocomplete="off">
+      <button id="search-close" aria-label="Close search">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+    <div class="search-footer"><span>↑↓ navigate</span><span>↵ select</span><span>ESC close</span></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__inner">
+      <nav class="sidenav">
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy</div>
+          <a href="../../docs/footnotes-made-easy/index.html" class="sidenav__link">Overview</a>
+          <a href="../../docs/footnotes-made-easy/installation.html" class="sidenav__link">Installation</a>
+          <a href="../../docs/footnotes-made-easy/getting-started.html" class="sidenav__link">Getting Started</a>
+          <div class="sidenav__sublabel">Settings</div>
+          <a href="../../docs/footnotes-made-easy/settings/display.html" class="sidenav__link sidenav__link--sub">Display</a>
+          <a href="../../docs/footnotes-made-easy/settings/behaviour.html" class="sidenav__link sidenav__link--sub">Behaviour</a>
+          <a href="../../docs/footnotes-made-easy/settings/suppress.html" class="sidenav__link sidenav__link--sub">Suppress</a>
+          <a href="../../docs/footnotes-made-easy/settings/advanced.html" class="sidenav__link sidenav__link--sub">Advanced</a>
+          <a href="../../docs/footnotes-made-easy/tools.html" class="sidenav__link">Tools</a>
+          <a href="../../docs/footnotes-made-easy/multisite.html" class="sidenav__link">Multisite</a>
+          <a href="../../docs/footnotes-made-easy/faq.html" class="sidenav__link">FAQ</a>
+          <a href="../../docs/footnotes-made-easy/changelog.html" class="sidenav__link">Changelog</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy <span class="badge-pro">Pro</span></div>
+          <a href="../../docs/footnotes-made-easy/pro-installation.html" class="sidenav__link">Installation</a>
+          <a href="../../docs/footnotes-made-easy/pro-license-activation.html" class="sidenav__link">License Activation</a>
+          <div class="sidenav__sublabel">Citations</div>
+          <a href="../../docs/footnotes-made-easy/pro-citations-overview.html" class="sidenav__link sidenav__link--sub">Overview</a>
+          <a href="../../docs/footnotes-made-easy/pro-citations-source-types.html" class="sidenav__link sidenav__link--sub">Source Types</a>
+          <a href="../../docs/footnotes-made-easy/pro-citations-styles.html" class="sidenav__link sidenav__link--sub">Citation Styles</a>
+          <a href="../../docs/footnotes-made-easy/pro-library.html" class="sidenav__link">Footnote Library</a>
+          <a href="../../docs/footnotes-made-easy/pro-gutenberg-sidebar.html" class="sidenav__link">Gutenberg Sidebar</a>
+          <a href="../../docs/footnotes-made-easy/pro-faq.html" class="sidenav__link">FAQ</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Account</div>
+          <a href="../../docs/account/managing-your-license.html" class="sidenav__link">Managing Your License</a>
+          <a href="../../docs/account/billing-and-renewals.html" class="sidenav__link">Billing and Renewals</a>
+          <a href="../../docs/account/refunds.html" class="sidenav__link">Refunds</a>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="main" id="main-content">
+    <div class="page-content">
+      <div class="doc-content">
+        <nav class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><a href="index.html">Footnotes Made Easy</a><span class="breadcrumb__sep">/</span><span>Pro</span><span class="breadcrumb__sep">/</span><span>Citations</span><span class="breadcrumb__sep">/</span><span>Styles</span></nav>
+        <h1>Citation Styles <span class="badge-pro">Pro</span></h1>
+        <div class="doc-meta">
+          <span>Footnotes Made Easy Pro › Citations</span>
+          <a href="https://github.com/altvisewp/docs/edit/main/docs/" target="_blank" rel="noopener" style="color:var(--text-3)">Edit this page</a>
+        </div>
+        
+<p>Footnotes Made Easy Pro supports three major academic citation styles. Each style has its own formatting conventions for author names, punctuation, italics, and field ordering.</p>
+
+<h2>APA (7th Edition)</h2>
+
+<p>The American Psychological Association style is used widely in social sciences, psychology, education, nursing, and business.</p>
+
+<h3>General format</h3>
+
+<p><strong>In-text:</strong> Superscript number linking to the reference entry.</p>
+
+<p><strong>Reference list format:</strong></p>
+<p><code>Author, A. A., & Author, B. B. (Year). Title of work: Capital letter also for subtitle. Publisher. https://doi.org/xxxxx</code></p>
+
+<h3>Key conventions</h3>
+
+<ul>
+<li>Author names use last name followed by initials: <code>Smith, J. A.</code></li>
+<li>Multiple authors separated by <code>&</code> before the last author</li>
+<li>Year of publication in parentheses immediately after author names</li>
+<li>Book and journal titles in italics</li>
+<li>Article titles in sentence case (only first word and proper nouns capitalised)</li>
+<li>Journal names in title case and italics</li>
+<li>DOI formatted as a URL: <code>https://doi.org/xxxxx</code></li>
+<li>No access dates for stable online content; access dates for content likely to change</li>
+</ul>
+
+<h3>Examples</h3>
+
+<p><strong>Book:</strong></p>
+<blockquote><p>Grohol, J. M. (2020). <em>Essentials of online counselling</em>. American Counselling Association.</p></blockquote>
+
+<p><strong>Journal article:</strong></p>
+<blockquote><p>Kim, S., & Park, J. H. (2021). Social media use and adolescent mental health. <em>Journal of Adolescent Health</em>, <em>68</em>(4), 245–252. https://doi.org/10.1016/j.jadohealth.2020.09.001</p></blockquote>
+
+<p><strong>Website:</strong></p>
+<blockquote><p>World Health Organization. (2023, January 12). <em>Mental health</em>. https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response</p></blockquote>
+
+<hr>
+
+<h2>MLA (9th Edition)</h2>
+
+<p>The Modern Language Association style is used widely in humanities disciplines — literature, language studies, film, and cultural studies.</p>
+
+<h3>General format</h3>
+
+<p><strong>In-text:</strong> Superscript number linking to the works cited entry.</p>
+
+<p><strong>Works cited format:</strong></p>
+<p><code>Author Last, First. "Title of Source." <em>Container Title</em>, Other Contributors, Version, Number, Publisher, Date, Location.</code></p>
+
+<h3>Key conventions</h3>
+
+<ul>
+<li>Author names use last name first for the first author: <code>Smith, John</code></li>
+<li>Subsequent authors use normal order: <code>and Jane Doe</code></li>
+<li>Source titles in quotation marks; container titles (journals, websites, books containing the source) in italics</li>
+<li>All major words capitalised in titles</li>
+<li>Date of access included for web sources</li>
+<li>URLs or DOIs optional but recommended for online sources</li>
+<li>Period at the end of each entry</li>
+</ul>
+
+<h3>Examples</h3>
+
+<p><strong>Book:</strong></p>
+<blockquote><p>Morrison, Toni. <em>Beloved</em>. Vintage Books, 1987.</p></blockquote>
+
+<p><strong>Journal article:</strong></p>
+<blockquote><p>Patel, Rina, and David Chen. "Urban Green Spaces and Mental Wellbeing." <em>Urban Studies Quarterly</em>, vol. 14, no. 2, 2022, pp. 88–104.</p></blockquote>
+
+<p><strong>Website:</strong></p>
+<blockquote><p>"Climate Change Evidence." <em>NASA</em>, 10 Feb. 2023, climate.nasa.gov/evidence/.</p></blockquote>
+
+<hr>
+
+<h2>Chicago (17th Edition)</h2>
+
+<p>The Chicago Manual of Style is used widely in history, arts, and some social sciences. It supports two systems — Notes-Bibliography (NB) and Author-Date. Footnotes Made Easy Pro uses the <strong>Notes-Bibliography</strong> system, which is the more common choice for humanities writing.</p>
+
+<h3>General format</h3>
+
+<p><strong>Footnote/endnote:</strong></p>
+<p><code>First M. Last, <em>Title of Book</em> (Place of Publication: Publisher, Year), page number.</code></p>
+
+<p><strong>Bibliography entry:</strong></p>
+<p><code>Last, First M. <em>Title of Book</em>. Place of Publication: Publisher, Year.</code></p>
+
+<h3>Key conventions</h3>
+
+<ul>
+<li>Footnote entries are formatted differently from bibliography entries</li>
+<li>First citations are written in full; subsequent citations of the same source use a shortened form</li>
+<li>Author full name in footnotes; last name first in bibliography</li>
+<li>Place of publication included for books</li>
+<li>Page numbers in footnotes for specific references</li>
+<li>Titles of major works in italics; titles of shorter works in quotation marks</li>
+<li>Ibid. may be used for consecutive citations of the same source</li>
+</ul>
+
+<h3>Examples</h3>
+
+<p><strong>Book footnote:</strong></p>
+<blockquote><p>1. Sarah Johnson, <em>The Industrial Revolution Reconsidered</em> (Cambridge: Cambridge University Press, 2018), 45.</p></blockquote>
+
+<p><strong>Shortened form (subsequent citation):</strong></p>
+<blockquote><p>4. Johnson, <em>Industrial Revolution</em>, 112.</p></blockquote>
+
+<p><strong>Journal article footnote:</strong></p>
+<blockquote><p>2. Marcus Webb and Li Huang, "Trade Routes in Medieval Asia," <em>Journal of Historical Geography</em> 38, no. 2 (2020): 201.</p></blockquote>
+
+<p><strong>Website footnote:</strong></p>
+<blockquote><p>3. "About the Archive," Internet Archive, last modified January 5, 2023, https://archive.org/about/.</p></blockquote>
+
+<hr>
+
+<h2>Choosing a citation style</h2>
+
+<p>If you are unsure which style to use:</p>
+
+<ul>
+<li><strong>Academic writing in social sciences, psychology, or education</strong> → APA</li>
+<li><strong>Academic writing in literature, film, or humanities</strong> → MLA</li>
+<li><strong>Academic writing in history or arts</strong> → Chicago</li>
+<li><strong>General non-academic writing</strong> → any style works; choose the one most familiar to your readers</li>
+</ul>
+
+<p>For formal academic submissions (journals, theses, dissertations), always verify the required style with your institution or publisher. Footnotes Made Easy Pro follows current edition guidelines but formal submissions should be reviewed against the official style manual.</p>
+
+        <div class="doc-nav"><a href="pro-citations-source-types.html" class="doc-nav__link"><span class="doc-nav__label">← Previous</span><span class="doc-nav__title">Source Types</span></a><a href="pro-library.html" class="doc-nav__link doc-nav__link--next"><span class="doc-nav__label">Next →</span><span class="doc-nav__title">Footnote Library</span></a></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__inner">
+        <span>© 2026 AltviseWP, LLC</span>
+        <div class="footer__links">
+          <a href="https://altvisewp.com" target="_blank" rel="noopener">Website</a>
+          <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+          <a href="https://altvisewp.com/privacy/" target="_blank" rel="noopener">Privacy</a>
+          <a href="https://altvisewp.com/terms/" target="_blank" rel="noopener">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script src="../../js/app.js"></script>
+</body>
+</html>

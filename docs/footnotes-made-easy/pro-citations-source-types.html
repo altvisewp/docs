@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Citations — Source Types — AltviseWP Docs</title>
+<meta name="description" content="Citations — Source Types documentation for AltviseWP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="../../index.html" class="topbar__logo">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
+      <span>AltviseWP <strong>Docs</strong></span>
+    </a>
+    <div class="topbar__search">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-input" placeholder="Search docs..." autocomplete="off" spellcheck="false">
+      <kbd>⌘K</kbd>
+    </div>
+    <nav class="topbar__nav">
+      <a href="https://altvisewp.com" target="_blank" rel="noopener">altvisewp.com</a>
+      <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 11a3 3 0 100-6 3 3 0 000 6zm0 1a4 4 0 100-8 4 4 0 000 8zM8 0a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 0zm0 13a.5.5 0 01.5.5v1a.5.5 0 01-1 0v-1A.5.5 0 018 13zM2.343 2.343a.5.5 0 01.707 0l.707.707a.5.5 0 11-.707.707l-.707-.707a.5.5 0 010-.707zm9.9 9.9a.5.5 0 01.707 0l.707.707a.5.5 0 01-.707.707l-.707-.707a.5.5 0 010-.707zM0 8a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 010 8zm13 0a.5.5 0 01.5-.5h1a.5.5 0 010 1h-1A.5.5 0 0113 8zM2.343 13.657a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707.707a.5.5 0 01-.707 0zm9.9-9.9a.5.5 0 010-.707l.707-.707a.5.5 0 11.707.707l-.707-.707a.5.5 0 01-.707 0z"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6 .278a.768.768 0 01.08.858 7.208 7.208 0 00-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 01.81.316.733.733 0 01-.031.893A8.349 8.349 0 018.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 016 .278z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-modal">
+    <div class="search-modal__input-wrap">
+      <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <input type="text" id="search-modal-input" placeholder="Search documentation..." autocomplete="off">
+      <button id="search-close" aria-label="Close search">ESC</button>
+    </div>
+    <div class="search-results" id="search-results"></div>
+    <div class="search-footer"><span>↑↓ navigate</span><span>↵ select</span><span>ESC close</span></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__inner">
+      <nav class="sidenav">
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy</div>
+          <a href="../../docs/footnotes-made-easy/index.html" class="sidenav__link">Overview</a>
+          <a href="../../docs/footnotes-made-easy/installation.html" class="sidenav__link">Installation</a>
+          <a href="../../docs/footnotes-made-easy/getting-started.html" class="sidenav__link">Getting Started</a>
+          <div class="sidenav__sublabel">Settings</div>
+          <a href="../../docs/footnotes-made-easy/settings/display.html" class="sidenav__link sidenav__link--sub">Display</a>
+          <a href="../../docs/footnotes-made-easy/settings/behaviour.html" class="sidenav__link sidenav__link--sub">Behaviour</a>
+          <a href="../../docs/footnotes-made-easy/settings/suppress.html" class="sidenav__link sidenav__link--sub">Suppress</a>
+          <a href="../../docs/footnotes-made-easy/settings/advanced.html" class="sidenav__link sidenav__link--sub">Advanced</a>
+          <a href="../../docs/footnotes-made-easy/tools.html" class="sidenav__link">Tools</a>
+          <a href="../../docs/footnotes-made-easy/multisite.html" class="sidenav__link">Multisite</a>
+          <a href="../../docs/footnotes-made-easy/faq.html" class="sidenav__link">FAQ</a>
+          <a href="../../docs/footnotes-made-easy/changelog.html" class="sidenav__link">Changelog</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Footnotes Made Easy <span class="badge-pro">Pro</span></div>
+          <a href="../../docs/footnotes-made-easy/pro-installation.html" class="sidenav__link">Installation</a>
+          <a href="../../docs/footnotes-made-easy/pro-license-activation.html" class="sidenav__link">License Activation</a>
+          <div class="sidenav__sublabel">Citations</div>
+          <a href="../../docs/footnotes-made-easy/pro-citations-overview.html" class="sidenav__link sidenav__link--sub">Overview</a>
+          <a href="../../docs/footnotes-made-easy/pro-citations-source-types.html" class="sidenav__link sidenav__link--sub">Source Types</a>
+          <a href="../../docs/footnotes-made-easy/pro-citations-styles.html" class="sidenav__link sidenav__link--sub">Citation Styles</a>
+          <a href="../../docs/footnotes-made-easy/pro-library.html" class="sidenav__link">Footnote Library</a>
+          <a href="../../docs/footnotes-made-easy/pro-gutenberg-sidebar.html" class="sidenav__link">Gutenberg Sidebar</a>
+          <a href="../../docs/footnotes-made-easy/pro-faq.html" class="sidenav__link">FAQ</a>
+        </div>
+        <div class="sidenav__group">
+          <div class="sidenav__label">Account</div>
+          <a href="../../docs/account/managing-your-license.html" class="sidenav__link">Managing Your License</a>
+          <a href="../../docs/account/billing-and-renewals.html" class="sidenav__link">Billing and Renewals</a>
+          <a href="../../docs/account/refunds.html" class="sidenav__link">Refunds</a>
+        </div>
+      </nav>
+    </div>
+  </aside>
+
+  <main class="main" id="main-content">
+    <div class="page-content">
+      <div class="doc-content">
+        <nav class="breadcrumb"><a href="../../index.html">Home</a><span class="breadcrumb__sep">/</span><a href="index.html">Footnotes Made Easy</a><span class="breadcrumb__sep">/</span><span>Pro</span><span class="breadcrumb__sep">/</span><span>Citations</span><span class="breadcrumb__sep">/</span><span>Source Types</span></nav>
+        <h1>Citations — Source Types <span class="badge-pro">Pro</span></h1>
+        <div class="doc-meta">
+          <span>Footnotes Made Easy Pro › Citations</span>
+          <a href="https://github.com/altvisewp/docs/edit/main/docs/" target="_blank" rel="noopener" style="color:var(--text-3)">Edit this page</a>
+        </div>
+        
+<p>Footnotes Made Easy Pro supports 10 source types. Each source type has a specific set of fields that map to the formatting rules for APA, MLA, and Chicago citation styles.</p>
+
+<h2>Supported source types</h2>
+
+<h3>1. Book</h3>
+
+<p>Use for physical or digital books, including edited volumes and multi-volume works.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author(s)</li>
+<li>Title</li>
+<li>Edition (optional)</li>
+<li>Publisher</li>
+<li>Year of publication</li>
+<li>City of publication (Chicago only)</li>
+<li>ISBN (optional — used for auto-fetch)</li>
+</ul>
+
+<p><strong>Example (APA):</strong></p>
+<blockquote><p>Smith, J. A. (2021). <em>The Art of Writing</em>. Oxford University Press.</p></blockquote>
+
+<h3>2. Journal Article</h3>
+
+<p>Use for articles published in academic or professional journals.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author(s)</li>
+<li>Article title</li>
+<li>Journal name</li>
+<li>Volume</li>
+<li>Issue (optional)</li>
+<li>Page range</li>
+<li>Year of publication</li>
+<li>DOI (optional — used for auto-fetch)</li>
+<li>URL (optional)</li>
+</ul>
+
+<p><strong>Example (APA):</strong></p>
+<blockquote><p>Brown, L., & Jones, M. (2022). Climate patterns in sub-Saharan Africa. <em>Journal of Environmental Science</em>, <em>45</em>(3), 112–128. https://doi.org/10.xxxx/xxxxx</p></blockquote>
+
+<h3>3. Website</h3>
+
+<p>Use for web pages, online articles, and digital content without a formal publication structure.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author(s) or organisation</li>
+<li>Page title</li>
+<li>Website name</li>
+<li>Publication or last updated date</li>
+<li>URL</li>
+<li>Access date (MLA and Chicago)</li>
+</ul>
+
+<p><strong>Example (MLA):</strong></p>
+<blockquote><p>Garcia, Maria. "The Future of Renewable Energy." <em>Energy Today</em>, 14 Mar. 2023, www.energytoday.com/future-renewable-energy.</p></blockquote>
+
+<h3>4. Newspaper Article</h3>
+
+<p>Use for articles published in print or online newspapers.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author(s)</li>
+<li>Article title</li>
+<li>Newspaper name</li>
+<li>Publication date</li>
+<li>Page or section (optional)</li>
+<li>URL (optional)</li>
+</ul>
+
+<p><strong>Example (Chicago):</strong></p>
+<blockquote><p>Williams, Robert. "New Policy Shifts Housing Market." <em>The Daily Tribune</em>, March 5, 2023.</p></blockquote>
+
+<h3>5. Magazine Article</h3>
+
+<p>Use for articles published in magazines or general-interest periodicals.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author(s)</li>
+<li>Article title</li>
+<li>Magazine name</li>
+<li>Publication date</li>
+<li>Page range (optional)</li>
+<li>URL (optional)</li>
+</ul>
+
+<h3>6. Film or Video</h3>
+
+<p>Use for films, documentaries, television episodes, and online video content.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Title</li>
+<li>Director</li>
+<li>Producer or production company</li>
+<li>Year of release</li>
+<li>Format or platform (e.g. Netflix, theatrical release)</li>
+<li>URL (optional, for online video)</li>
+</ul>
+
+<p><strong>Example (MLA):</strong></p>
+<blockquote><p><em>Inception</em>. Directed by Christopher Nolan, Warner Bros. Pictures, 2010.</p></blockquote>
+
+<h3>7. Thesis or Dissertation</h3>
+
+<p>Use for master's theses, doctoral dissertations, and similar academic works.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author</li>
+<li>Title</li>
+<li>Degree type (e.g. PhD dissertation, Master's thesis)</li>
+<li>Institution</li>
+<li>Year</li>
+<li>Database or URL (optional)</li>
+</ul>
+
+<p><strong>Example (APA):</strong></p>
+<blockquote><p>Thompson, K. R. (2020). <em>Digital identity formation in adolescents</em> [Doctoral dissertation, University of Chicago].</p></blockquote>
+
+<h3>8. Book Chapter</h3>
+
+<p>Use for chapters or essays in edited volumes or anthologies.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Chapter author(s)</li>
+<li>Chapter title</li>
+<li>Editor(s)</li>
+<li>Book title</li>
+<li>Page range</li>
+<li>Publisher</li>
+<li>Year of publication</li>
+</ul>
+
+<p><strong>Example (Chicago):</strong></p>
+<blockquote><p>Adams, Sarah. "Colonial Narratives in Modern Fiction." In <em>Postcolonial Perspectives</em>, edited by James Okafor, 45–72. Cambridge University Press, 2019.</p></blockquote>
+
+<h3>9. Conference Paper</h3>
+
+<p>Use for papers presented at academic conferences, whether published in proceedings or not.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author(s)</li>
+<li>Paper title</li>
+<li>Conference name</li>
+<li>Conference date</li>
+<li>Conference location</li>
+<li>Publisher or proceedings title (if published)</li>
+<li>Page range (if published)</li>
+<li>URL (optional)</li>
+</ul>
+
+<h3>10. Other / Generic</h3>
+
+<p>Use for source types not covered by the above categories — government reports, legal documents, social media posts, interviews, podcasts, and similar sources.</p>
+
+<p><strong>Fields:</strong></p>
+<ul>
+<li>Author or creator</li>
+<li>Title</li>
+<li>Source type description</li>
+<li>Publication or creation date</li>
+<li>Publisher or platform</li>
+<li>URL (optional)</li>
+<li>Additional notes</li>
+</ul>
+
+<p>The Other type gives you a free-form description field to capture source details that do not fit a standard structure. The citation is formatted as closely as possible to the selected style guide's guidance for non-standard sources.</p>
+
+<h2>Adding a source type not listed here</h2>
+
+<p>If you regularly cite a source type not covered above, please submit a feature request via our <a href="https://altvisewp.com/support/">support page</a>. We review feature requests for each product update.</p>
+
+        <div class="doc-nav"><a href="pro-citations-overview.html" class="doc-nav__link"><span class="doc-nav__label">← Previous</span><span class="doc-nav__title">Citations Overview</span></a><a href="pro-citations-styles.html" class="doc-nav__link doc-nav__link--next"><span class="doc-nav__label">Next →</span><span class="doc-nav__title">Citation Styles</span></a></div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="footer__inner">
+        <span>© 2026 AltviseWP, LLC</span>
+        <div class="footer__links">
+          <a href="https://altvisewp.com" target="_blank" rel="noopener">Website</a>
+          <a href="https://altvisewp.com/support/" target="_blank" rel="noopener">Support</a>
+          <a href="https://altvisewp.com/privacy/" target="_blank" rel="noopener">Privacy</a>
+          <a href="https://altvisewp.com/terms/" target="_blank" rel="noopener">Terms</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+</div>
+
+<script src="../../js/app.js"></script>
+</body>
+</html>
