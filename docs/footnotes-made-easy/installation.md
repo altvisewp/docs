@@ -2,7 +2,7 @@
 
 Footnotes Made Easy can be installed directly from the WordPress dashboard or manually via FTP.
 
-## Method 1 — Install from WordPress dashboard (recommended)
+## Method 1 — Install from WordPress dashboard 
 
 1. Log in to your WordPress admin dashboard
 2. Go to **Plugins → Add New**
