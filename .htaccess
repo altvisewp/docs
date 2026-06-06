@@ -1,6 +1,11 @@
 Options -Indexes
+DirectoryIndex index.html
 
 RewriteEngine On
+
+# Redirect /index to directory (removes /index)
+RewriteCond %{THE_REQUEST} /index(\s|/|\?) [NC]
+RewriteRule ^(.*/)index$ /$1 [R=301,L]
 
 # Remove .html extension
 RewriteCond %{REQUEST_FILENAME} !-f
@@ -8,6 +13,6 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+)$ $1.html [L,QSA]
 
-# Redirect .html URLs to clean URLs (removes .html if someone types it)
+# Redirect .html URLs to clean URLs
 RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
 RewriteRule ^ /%1 [R=301,L]
