@@ -149,22 +149,27 @@
   } );
 
   // ── Theme toggle ─────────────────────────────────────────
-  const html        = document.documentElement;
-  const themeToggle = document.getElementById( 'theme-toggle' );
-  const saved       = localStorage.getItem( 'apu-theme' );
+  var html        = document.documentElement;
+  var themeToggle = document.getElementById( 'theme-toggle' );
+  var saved       = localStorage.getItem( 'apu-theme' );
 
-  if ( saved ) {
+  // Apply saved preference, otherwise respect OS preference
+  if ( saved === 'light' || saved === 'dark' ) {
     html.setAttribute( 'data-theme', saved );
   } else if ( window.matchMedia( '(prefers-color-scheme: light)' ).matches ) {
     html.setAttribute( 'data-theme', 'light' );
+  } else {
+    html.setAttribute( 'data-theme', 'dark' );
   }
 
-  themeToggle.addEventListener( 'click', function () {
-    const current = html.getAttribute( 'data-theme' );
-    const next    = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute( 'data-theme', next );
-    localStorage.setItem( 'apu-theme', next );
-  } );
+  if ( themeToggle ) {
+    themeToggle.addEventListener( 'click', function () {
+      var current = html.getAttribute( 'data-theme' );
+      var next    = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute( 'data-theme', next );
+      localStorage.setItem( 'apu-theme', next );
+    } );
+  }
 
   // ── Active nav link ───────────────────────────────────────
   const currentPath = window.location.pathname.replace( /\/$/, '' );

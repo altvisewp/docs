@@ -71,7 +71,7 @@ body {
 }
 a { color: var(--brand); text-decoration: none; }
 a:hover { color: var(--brand-l); }
-img { max-width: 100%; }
+img { max-width: 100%; height: auto; }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
@@ -473,6 +473,27 @@ html:not([data-theme]) .icon-moon { display: block; }
   color: var(--text);
   font-size: 13px;
   line-height: 1.6;
+}
+
+/* Images */
+.doc-content .doc-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display: block;
+}
+.doc-content .doc-figure {
+  margin: 20px 0;
+}
+.doc-content .doc-figure .doc-img {
+  max-width: 100%;
+  height: auto;
+}
+.doc-content p .doc-img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
 }
 
 /* Tables */

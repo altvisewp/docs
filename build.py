@@ -104,6 +104,8 @@ PAGE_SEQUENCE = [
 
 # ── Markdown to HTML ──────────────────────────────────────
 def fmt(text):
+    # Images first (before links, to avoid conflict)
+    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" class="doc-img">', text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*',     r'<em>\1</em>', text)
     text = re.sub(r'`(.+?)`',       r'<code>\1</code>', text)
@@ -203,6 +205,9 @@ def md_to_html(md):
             html.append(f'<li>{fmt(clean_line)}</li>')
         elif line.startswith('---'):
             html.append('<hr>')
+        elif re.match(r'^!\[', line):
+            # Standalone image line
+            html.append(f'<figure class="doc-figure">{fmt(line)}</figure>')
         elif line.strip() == '':
             html.append('')
         else:
