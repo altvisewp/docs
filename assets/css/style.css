@@ -223,6 +223,8 @@ html:not([data-theme]) .icon-moon { display: block; }
   color: var(--text-3);
   transition: transform 0.15s;
 }
+.sidenav__items { display: block; }
+.sidenav__group--collapsed .sidenav__items { display: none; }
 .sidenav__sublabel {
   font-size: 11px;
   font-weight: 600;

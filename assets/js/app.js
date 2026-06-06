@@ -171,49 +171,14 @@
     } );
   }
 
-  // ── Active nav link + collapsible groups ─────────────────
-  var currentPath = window.location.pathname.replace( /\/$/, '' );
-
-  // Step 1 — mark active links first
-  document.querySelectorAll( '.sidenav__link' ).forEach( function ( link ) {
-    var href = link.getAttribute( 'href' );
-    if ( ! href ) return;
-    var cleanHref = href.replace( /\/$/, '' );
-    if ( currentPath === cleanHref || currentPath.endsWith( cleanHref ) ) {
-      link.classList.add( 'active' );
-    }
-  } );
-
-  // Step 2 — collapse groups with no active link
-  document.querySelectorAll( '.sidenav__group' ).forEach( function ( group ) {
-    var label     = group.querySelector( '.sidenav__label' );
-    if ( ! label ) return;
-
-    var hasActive = !! group.querySelector( '.sidenav__link.active' );
-    var items     = Array.prototype.slice.call(
-      group.querySelectorAll( '.sidenav__link, .sidenav__sublabel' )
-    );
-
-    // Arrow indicator
-    var arrow = document.createElement( 'span' );
-    arrow.className = 'sidenav__arrow';
-    arrow.textContent = hasActive ? '▾' : '▸';
-    label.appendChild( arrow );
-    label.style.cursor = 'pointer';
-
-    // Hide items if not the active group
-    if ( ! hasActive ) {
-      items.forEach( function ( el ) { el.style.display = 'none'; } );
-    }
-
-    // Toggle on label click
-    label.addEventListener( 'click', function () {
-      var isHidden = items[0] && items[0].style.display === 'none';
-      items.forEach( function ( el ) {
-        el.style.display = isHidden ? '' : 'none';
-      } );
-      arrow.textContent = isHidden ? '▾' : '▸';
-    } );
-  } );
+  // ── Sidebar toggle ────────────────────────────────────────
+  window.toggleGroup = function ( label ) {
+    var group  = label.parentElement;
+    var items  = group.querySelector( '.sidenav__items' );
+    var arrow  = label.querySelector( '.sidenav__arrow' );
+    var hidden = items.style.display === 'none';
+    items.style.display  = hidden ? '' : 'none';
+    arrow.textContent    = hidden ? '▾' : '▸';
+  };
 
 } )();

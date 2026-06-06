@@ -224,38 +224,64 @@ def md_to_html(md):
     return result
 
 # ── Sidebar HTML ──────────────────────────────────────────
-def build_sidebar():
+def build_sidebar(active_url=''):
     html = ''
     for group in SIDEBAR:
         pro_label = '<span class="badge-pro">Pro</span>' if group.get('pro') else ''
-        html += f'<div class="sidenav__group">'
-        html += f'<div class="sidenav__label">{group["label"]} {pro_label}</div>'
+
+        # Check if any link in this group matches the active URL
+        all_items = list(group.get('items', []))
+        for sub in group.get('groups', []):
+            all_items += sub['items']
+        all_items += group.get('items2', [])
+
+        group_urls = ['/' + url.replace('.html', '').replace('index', '').rstrip('/') 
+                      for _, url, _ in all_items]
+        active_url_clean = active_url.rstrip('/')
+        is_active_group = any(
+            active_url_clean == u or active_url_clean == u.rstrip('/')
+            for u in group_urls
+        )
+
+        collapsed_class = '' if is_active_group else ' sidenav__group--collapsed'
+        html += f'<div class="sidenav__group{collapsed_class}">'
+        html += f'<div class="sidenav__label" onclick="toggleGroup(this)">{group["label"]} {pro_label}<span class="sidenav__arrow">{"▾" if is_active_group else "▸"}</span></div>'
+
+        wrap_display = '' if is_active_group else ' style="display:none"'
+        html += f'<div class="sidenav__items"{wrap_display}>'
 
         for label, url, is_pro in group.get('items', []):
-            clean_url = '/' + url.replace('.html', '').replace('index', '')
-            clean_url = clean_url.rstrip('/') + '/' if url.endswith('index.html') else clean_url.rstrip('/')
+            clean_url = '/' + url.replace('.html', '').replace('index', '').rstrip('/')
+            clean_url = clean_url if clean_url else '/'
+            is_active = active_url_clean == clean_url.rstrip('/')
+            active_class = ' active' if is_active else ''
             pro_badge = '<span class="badge-pro">Pro</span>' if is_pro else ''
-            html += f'<a href="{clean_url}" class="sidenav__link">{label} {pro_badge}</a>'
+            html += f'<a href="{clean_url}" class="sidenav__link{active_class}">{label} {pro_badge}</a>'
 
         for sub in group.get('groups', []):
             html += f'<div class="sidenav__sublabel">{sub["label"]}</div>'
             for label, url, is_pro in sub['items']:
                 clean_url = '/' + url.replace('.html', '')
+                is_active = active_url_clean == clean_url.rstrip('/')
+                active_class = ' active' if is_active else ''
                 pro_badge = '<span class="badge-pro">Pro</span>' if is_pro else ''
-                html += f'<a href="{clean_url}" class="sidenav__link sidenav__link--sub">{label} {pro_badge}</a>'
+                html += f'<a href="{clean_url}" class="sidenav__link sidenav__link--sub{active_class}">{label} {pro_badge}</a>'
 
         for label, url, is_pro in group.get('items2', []):
             clean_url = '/' + url.replace('.html', '')
+            is_active = active_url_clean == clean_url.rstrip('/')
+            active_class = ' active' if is_active else ''
             pro_badge = '<span class="badge-pro">Pro</span>' if is_pro else ''
-            html += f'<a href="{clean_url}" class="sidenav__link">{label} {pro_badge}</a>'
+            html += f'<a href="{clean_url}" class="sidenav__link{active_class}">{label} {pro_badge}</a>'
 
-        html += '</div>'
+        html += '</div>'  # .sidenav__items
+        html += '</div>'  # .sidenav__group
     return html
 
 # ── Page template ─────────────────────────────────────────
-def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pro=False):
+def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pro=False, active_url=''):
     pro_badge = '<span class="badge-pro">Pro</span>' if is_pro else ''
-    sidebar_html = build_sidebar()
+    sidebar_html = build_sidebar(active_url)
 
     return f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
@@ -307,7 +333,7 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
 <div class="layout">
   <aside class="sidebar" id="sidebar">
     <div class="sidebar__inner">
-      <nav class="sidenav">
+        <nav class="sidenav">
         {sidebar_html}
       </nav>
     </div>
@@ -707,7 +733,7 @@ def build():
 
     # Build homepage
     with open(f'{BUILD_DIR}/index.html', 'w') as f:
-        f.write(HOMEPAGE.format(font_url=FONT_URL, sidebar=build_sidebar()))
+        f.write(HOMEPAGE.format(font_url=FONT_URL, sidebar=build_sidebar('/')))
     print('  ✅ index.html')
 
     # Build all doc pages
@@ -731,6 +757,7 @@ def build():
             content_html    = content_html,
             nav_html        = nav_html,
             is_pro          = page.get('is_pro', False),
+            active_url      = page['url'],
         )
 
         dst = os.path.join(BUILD_DIR, page['dst'])
