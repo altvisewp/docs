@@ -216,6 +216,7 @@ html:not([data-theme]) .icon-moon { display: block; }
   align-items: center;
   gap: 6px;
   user-select: none;
+  cursor: pointer;
 }
 .sidenav__arrow {
   margin-left: auto;
