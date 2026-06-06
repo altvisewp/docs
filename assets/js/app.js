@@ -172,13 +172,16 @@
   }
 
   // ── Sidebar toggle ────────────────────────────────────────
-  window.toggleGroup = function ( label ) {
-    var group  = label.parentElement;
-    var items  = group.querySelector( '.sidenav__items' );
-    var arrow  = label.querySelector( '.sidenav__arrow' );
-    var hidden = items.style.display === 'none';
-    items.style.display  = hidden ? '' : 'none';
-    arrow.textContent    = hidden ? '▾' : '▸';
-  };
+  document.querySelectorAll( '.sidenav__label' ).forEach( function ( label ) {
+    label.addEventListener( 'click', function () {
+      var group  = label.parentElement;
+      var items  = group.querySelector( '.sidenav__items' );
+      var arrow  = label.querySelector( '.sidenav__arrow' );
+      if ( ! items ) return;
+      var hidden = items.style.display === 'none';
+      items.style.display = hidden ? '' : 'none';
+      if ( arrow ) arrow.textContent = hidden ? '▾' : '▸';
+    } );
+  } );
 
 } )();

@@ -245,7 +245,7 @@ def build_sidebar(active_url=''):
 
         collapsed_class = '' if is_active_group else ' sidenav__group--collapsed'
         html += f'<div class="sidenav__group{collapsed_class}">'
-        html += f'<div class="sidenav__label" onclick="toggleGroup(this)">{group["label"]} {pro_label}<span class="sidenav__arrow">{"▾" if is_active_group else "▸"}</span></div>'
+        html += f'<div class="sidenav__label">{group["label"]} {pro_label}<span class="sidenav__arrow">{"▾" if is_active_group else "▸"}</span></div>'
 
         wrap_display = '' if is_active_group else ' style="display:none"'
         html += f'<div class="sidenav__items"{wrap_display}>'
