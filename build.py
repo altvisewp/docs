@@ -199,7 +199,8 @@ def md_to_html(md):
                 html.append('<ol>')
                 in_list = True
                 list_type = 'ol'
-            html.append(f'<li>{fmt(re.sub(r"^\d+\. ", "", line))}</li>')
+            clean_line = re.sub(r'^\d+\. ', '', line)
+            html.append(f'<li>{fmt(clean_line)}</li>')
         elif line.startswith('---'):
             html.append('<hr>')
         elif line.strip() == '':
