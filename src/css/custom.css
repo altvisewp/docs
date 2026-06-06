@@ -1,0 +1,163 @@
+/**
+ * AltviseWP Docs — Custom CSS
+ * Brand colour: #61003B (burgundy)
+ * Accent:       #534AB7 (purple, from FME plugin)
+ */
+
+/* ── Brand colour tokens ─────────────────────────────── */
+:root {
+  --ifm-color-primary:          #61003B;
+  --ifm-color-primary-dark:     #4a002d;
+  --ifm-color-primary-darker:   #3d0025;
+  --ifm-color-primary-darkest:  #2a0019;
+  --ifm-color-primary-light:    #7a004b;
+  --ifm-color-primary-lighter:  #8c0055;
+  --ifm-color-primary-lightest: #b3006d;
+
+  --ifm-code-font-size:         95%;
+  --ifm-font-family-base:       'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-weight:    700;
+  --ifm-navbar-height:          60px;
+  --ifm-toc-border-color:       #e8dde5;
+
+  --docusaurus-highlighted-code-line-bg: rgba(97, 0, 59, 0.08);
+}
+
+/* ── Dark mode tokens ────────────────────────────────── */
+[data-theme='dark'] {
+  --ifm-color-primary:          #d4648a;
+  --ifm-color-primary-dark:     #cc4d78;
+  --ifm-color-primary-darker:   #c73f6f;
+  --ifm-color-primary-darkest:  #b02458;
+  --ifm-color-primary-light:    #dc7b9c;
+  --ifm-color-primary-lighter:  #e189a8;
+  --ifm-color-primary-lightest: #edb0c3;
+
+  --ifm-background-color:       #0f0009;
+  --ifm-background-surface-color: #1a0010;
+  --ifm-navbar-background-color:  #0f0009;
+  --ifm-footer-background-color:  #0f0009;
+  --ifm-toc-border-color:         #3d0025;
+
+  --docusaurus-highlighted-code-line-bg: rgba(212, 100, 138, 0.1);
+}
+
+/* ── Navbar ──────────────────────────────────────────── */
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
+.navbar__title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ── Sidebar ─────────────────────────────────────────── */
+.menu__link--active:not(.menu__link--sublist) {
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-darkest);
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+[data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
+  background: rgba(212, 100, 138, 0.15);
+  color: var(--ifm-color-primary-lighter);
+}
+
+/* Pro category label */
+.menu__list-item--collapsed > .menu__link:first-child,
+.menu__list > .menu__list-item > .menu__link[href="#"] {
+  font-weight: 700;
+}
+
+/* ── Content ─────────────────────────────────────────── */
+.markdown h1:first-child {
+  font-size: 2rem;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  font-weight: 700;
+}
+
+.markdown h2 {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  padding-bottom: 8px;
+  margin-top: 2rem;
+}
+
+/* ── Code blocks ─────────────────────────────────────── */
+.theme-code-block {
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+table {
+  display: table;
+  width: 100%;
+  font-size: 14px;
+}
+
+table th {
+  background: var(--ifm-color-primary);
+  color: #fff;
+  font-weight: 600;
+}
+
+[data-theme='dark'] table th {
+  background: var(--ifm-color-primary-darkest);
+}
+
+table tr:nth-child(even) {
+  background: var(--ifm-background-surface-color);
+}
+
+/* ── Pro badge ───────────────────────────────────────── */
+.badge--pro {
+  background: #534AB7;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+/* ── Footer ──────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--ifm-toc-border-color);
+}
+
+.footer__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ── Search ──────────────────────────────────────────── */
+.navbar__search-input {
+  border-radius: 6px;
+}
+
+/* ── Admonitions ─────────────────────────────────────── */
+.alert--info {
+  --ifm-alert-border-color: #534AB7;
+}
+
+/* ── Pagination ──────────────────────────────────────── */
+.pagination-nav__link {
+  border-radius: 8px;
+  border: 1px solid var(--ifm-toc-border-color);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+}
