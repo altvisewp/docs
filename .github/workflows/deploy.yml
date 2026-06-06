@@ -31,6 +31,9 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./build/
           server-dir: /docs/
+          timeout: 60000
+          security: loose
+          dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.git*/**
