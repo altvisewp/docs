@@ -47,6 +47,17 @@ document.addEventListener( 'DOMContentLoaded', function () {
     { title: 'Use Cases', section: 'Page Categorizer', url: '/page-categorizer/use-cases', excerpt: 'Category-based page listings, archive integration, hiding pages, knowledge base structure, shortcode examples.' },
     { title: 'FAQ', section: 'Page Categorizer', url: '/page-categorizer/faq', excerpt: 'FAQ on category sharing, archive pages, compatibility, and data retention after deactivation.' },
     { title: 'Changelog', section: 'Page Categorizer', url: '/page-categorizer/changelog', excerpt: 'Release history for Page Categorizer.' },
+
+    // Debug Log Inspector
+    { title: 'Overview', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/', excerpt: 'Monitor WordPress debug.log for plugin-specific errors. Real-time colour-coded admin bar indicator.' },
+    { title: 'Installation', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/installation', excerpt: 'Install from WordPress dashboard. Requires WP_DEBUG_LOG enabled in wp-config.php.' },
+    { title: 'Getting Started', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/getting-started', excerpt: 'Enable debug logging, open Settings → Log Inspector, add plugins to monitor, check the admin bar.' },
+    { title: 'Adding Plugins to Monitor', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/adding-plugins', excerpt: 'Add plugin name, file path, and search terms. Edit, enable, disable, or delete monitored plugins.' },
+    { title: 'Admin Bar', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/admin-bar', excerpt: 'Green = no errors, Red = errors found, Gray = WP_DEBUG_LOG not enabled. Hover for last error.' },
+    { title: 'Settings', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/settings', excerpt: 'Configure log scan depth and only monitor active plugins option.' },
+    { title: 'Testing', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/testing', excerpt: 'Step-by-step guide to verify the plugin is correctly detecting errors in your debug log.' },
+    { title: 'FAQ', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/faq', excerpt: 'FAQ on WP_DEBUG setup, search terms, scan depth, admin bar states, and compatibility.' },
+    { title: 'Changelog', section: 'Debug Log Inspector', url: '/lumiblog-debug-log-inspector/changelog', excerpt: 'Release history for Lumiblog Debug Log Inspector.' },
   ];
 
   // ── Search logic ─────────────────────────────────────────

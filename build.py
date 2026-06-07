@@ -101,6 +101,21 @@ SIDEBAR = [
             ('Changelog',       'page-categorizer/changelog.html',      False),
         ]
     },
+    {
+        'label': 'Debug Log Inspector',
+        'visible': True,
+        'items': [
+            ('Overview',            'lumiblog-debug-log-inspector/index.html',          False),
+            ('Installation',        'lumiblog-debug-log-inspector/installation.html',   False),
+            ('Getting Started',     'lumiblog-debug-log-inspector/getting-started.html',False),
+            ('Adding Plugins',      'lumiblog-debug-log-inspector/adding-plugins.html', False),
+            ('Admin Bar',           'lumiblog-debug-log-inspector/admin-bar.html',      False),
+            ('Settings',            'lumiblog-debug-log-inspector/settings.html',       False),
+            ('Testing',             'lumiblog-debug-log-inspector/testing.html',        False),
+            ('FAQ',                 'lumiblog-debug-log-inspector/faq.html',            False),
+            ('Changelog',           'lumiblog-debug-log-inspector/changelog.html',      False),
+        ]
+    },
 ]
 
 # Page sequence for prev/next navigation
@@ -132,6 +147,16 @@ PAGE_SEQUENCE = [
     ('PC Use Cases',        '/page-categorizer/use-cases'),
     ('PC FAQ',              '/page-categorizer/faq'),
     ('PC Changelog',        '/page-categorizer/changelog'),
+    # Debug Log Inspector
+    ('DLI Overview',        '/lumiblog-debug-log-inspector/'),
+    ('DLI Installation',    '/lumiblog-debug-log-inspector/installation'),
+    ('DLI Getting Started', '/lumiblog-debug-log-inspector/getting-started'),
+    ('DLI Adding Plugins',  '/lumiblog-debug-log-inspector/adding-plugins'),
+    ('DLI Admin Bar',       '/lumiblog-debug-log-inspector/admin-bar'),
+    ('DLI Settings',        '/lumiblog-debug-log-inspector/settings'),
+    ('DLI Testing',         '/lumiblog-debug-log-inspector/testing'),
+    ('DLI FAQ',             '/lumiblog-debug-log-inspector/faq'),
+    ('DLI Changelog',       '/lumiblog-debug-log-inspector/changelog'),
 ]
 
 # ── Markdown to HTML ──────────────────────────────────────
@@ -773,6 +798,97 @@ PAGES = [
         'is_pro':    False,
         'visible':   True,
     },
+    # ── Debug Log Inspector ───────────────────────────────────
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/README.md',
+        'dst':       'lumiblog-debug-log-inspector/index.html',
+        'title':     'Debug Log Inspector',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/installation.md',
+        'dst':       'lumiblog-debug-log-inspector/installation.html',
+        'title':     'Installation',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/installation',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Installation', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/getting-started.md',
+        'dst':       'lumiblog-debug-log-inspector/getting-started.html',
+        'title':     'Getting Started',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/getting-started',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Getting Started', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/adding-plugins.md',
+        'dst':       'lumiblog-debug-log-inspector/adding-plugins.html',
+        'title':     'Adding Plugins to Monitor',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/adding-plugins',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Adding Plugins', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/admin-bar.md',
+        'dst':       'lumiblog-debug-log-inspector/admin-bar.html',
+        'title':     'Admin Bar',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/admin-bar',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Admin Bar', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/settings.md',
+        'dst':       'lumiblog-debug-log-inspector/settings.html',
+        'title':     'Settings',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/settings',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Settings', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/testing.md',
+        'dst':       'lumiblog-debug-log-inspector/testing.html',
+        'title':     'Testing',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/testing',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Testing', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/faq.md',
+        'dst':       'lumiblog-debug-log-inspector/faq.html',
+        'title':     'FAQ',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/faq',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('FAQ', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/lumiblog-debug-log-inspector/changelog.md',
+        'dst':       'lumiblog-debug-log-inspector/changelog.html',
+        'title':     'Changelog',
+        'section':   'Debug Log Inspector',
+        'url':       '/lumiblog-debug-log-inspector/changelog',
+        'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Changelog', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
 ]
 
 # ── Homepage ──────────────────────────────────────────────
@@ -874,6 +990,17 @@ HOMEPAGE = '''<!DOCTYPE html>
           <div class="product-card__body">
             <h3 class="product-card__name">Page Categorizer</h3>
             <p class="product-card__desc">Assign categories and tags to WordPress Pages. Activate and it works — no configuration required.</p>
+          </div>
+          <div class="product-card__arrow">→</div>
+        </a>
+
+        <a href="/lumiblog-debug-log-inspector/" class="product-card">
+          <div class="product-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Debug Log Inspector</h3>
+            <p class="product-card__desc">Monitor your WordPress debug.log for plugin-specific errors with a real-time colour-coded admin bar indicator.</p>
           </div>
           <div class="product-card__arrow">→</div>
         </a>
