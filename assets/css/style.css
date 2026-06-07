@@ -130,6 +130,7 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
   flex-shrink: 0;
 }
+.topbar__logo:hover { color: #fff; }
 .topbar__logo svg { color: rgba(255,255,255,0.8); }
 .topbar__logo strong { color: var(--btn-bg); }
 .topbar__search {
@@ -430,23 +431,15 @@ html:not([data-theme]) .icon-moon { display: block; }
   margin-bottom: 8px;
   line-height: 1.2;
 }
-.doc-content .doc-meta {
-  font-size: 12px;
-  font-weight: 300;
-  color: var(--text-3);
-  margin-bottom: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+.doc-content .doc-meta { display: none; }
 .doc-content h2 {
   font-family: var(--font-display);
   font-size: 20px;
   font-weight: 600;
   color: var(--text);
   margin: 40px 0 12px;
+}
+.doc-content hr { display: none; }
   padding-bottom: 8px;
   border-bottom: 1px solid var(--border);
 }
@@ -481,7 +474,6 @@ html:not([data-theme]) .icon-moon { display: block; }
 .doc-content em { color: var(--text-2); }
 .doc-content a { color: var(--brand); font-weight: 400; }
 .doc-content a:hover { text-decoration: underline; }
-.doc-content hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
 
 /* Code */
 .doc-content code {
