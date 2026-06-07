@@ -95,8 +95,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
     selectedIndex = 0;
   }
 
+  var topbarSearch = document.querySelector( '.topbar__search' );
   topbarInput.addEventListener( 'click', openSearch );
   topbarInput.addEventListener( 'focus', openSearch );
+  if ( topbarSearch ) topbarSearch.addEventListener( 'click', openSearch );
   closeBtn.addEventListener( 'click', closeSearch );
 
   overlay.addEventListener( 'click', function ( e ) {
