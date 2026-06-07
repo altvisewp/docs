@@ -750,15 +750,15 @@ html:not([data-theme]) .icon-moon { display: block; }
   .topbar__nav a { display: none; }
   .topbar__nav .theme-toggle { display: flex !important; flex-shrink: 0; }
 
-  /* Search — icon only, no text input */
+  /* Search — icon only on mobile */
   .topbar__search {
-    flex: 0 0 auto;
-    width: 36px;
-    min-width: 0;
+    flex: 0 0 34px;
+    width: 34px;
     padding: 7px;
     justify-content: center;
-    overflow: hidden;
+    gap: 0;
   }
+  .topbar__search svg { flex-shrink: 0; color: #fff; }
   .topbar__search input,
   .topbar__search kbd { display: none; }
 
