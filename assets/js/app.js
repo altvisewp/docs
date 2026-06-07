@@ -95,8 +95,10 @@ document.addEventListener( 'DOMContentLoaded', function () {
     selectedIndex = 0;
   }
 
+  var topbarSearch = document.querySelector( '.topbar__search' );
   topbarInput.addEventListener( 'click', openSearch );
   topbarInput.addEventListener( 'focus', openSearch );
+  if ( topbarSearch ) topbarSearch.addEventListener( 'click', openSearch );
   closeBtn.addEventListener( 'click', closeSearch );
 
   overlay.addEventListener( 'click', function ( e ) {
@@ -147,6 +149,25 @@ document.addEventListener( 'DOMContentLoaded', function () {
       items[ selectedIndex ]?.click();
     }
   } );
+
+  // ── Mobile sidebar toggle ─────────────────────────────────
+  var sidebarToggle  = document.getElementById( 'sidebar-toggle' );
+  var sidebar        = document.getElementById( 'sidebar' );
+  var sidebarOverlay = document.getElementById( 'sidebar-overlay' );
+
+  function openSidebar() {
+    sidebar.classList.add( 'open' );
+    sidebarOverlay.classList.add( 'open' );
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSidebar() {
+    sidebar.classList.remove( 'open' );
+    sidebarOverlay.classList.remove( 'open' );
+    document.body.style.overflow = '';
+  }
+
+  if ( sidebarToggle ) sidebarToggle.addEventListener( 'click', openSidebar );
+  if ( sidebarOverlay ) sidebarOverlay.addEventListener( 'click', closeSidebar );
 
   // ── Theme toggle ─────────────────────────────────────────
   var html        = document.documentElement;

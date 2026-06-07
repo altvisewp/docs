@@ -293,8 +293,10 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
 
 <header class="topbar">
   <div class="topbar__inner">
-    <a href="/" class="topbar__logo">
+    <button class="topbar__hamburger" id="sidebar-toggle" aria-label="Toggle sidebar">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
+    </button>
+    <a href="/" class="topbar__logo">
       <span>AltviseWP <strong>Docs</strong></span>
     </a>
     <div class="topbar__search">
@@ -360,6 +362,7 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
   </main>
 </div>
 
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 <script src="/js/app.js"></script>
 </body>
 </html>'''
@@ -617,8 +620,10 @@ HOMEPAGE = '''<!DOCTYPE html>
 
 <header class="topbar">
   <div class="topbar__inner">
-    <a href="/" class="topbar__logo">
+    <button class="topbar__hamburger" id="sidebar-toggle" aria-label="Toggle sidebar">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
+    </button>
+    <a href="/" class="topbar__logo">
       <span>AltviseWP <strong>Docs</strong></span>
     </a>
     <div class="topbar__search">
@@ -707,6 +712,7 @@ HOMEPAGE = '''<!DOCTYPE html>
   </main>
 </div>
 
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
 <script src="/js/app.js"></script>
 </body>
 </html>'''

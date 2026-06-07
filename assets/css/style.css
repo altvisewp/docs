@@ -78,6 +78,31 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
+/* Hamburger — hidden on desktop, visible on mobile */
+.topbar__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+}
+.topbar__hamburger:hover { background: rgba(255,255,255,0.12); }
+
+/* Sidebar overlay — for closing on mobile tap-outside */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 49;
+}
+.sidebar-overlay.open { display: block; }
+
 /* ── Topbar ──────────────────────────────────────────────── */
 .topbar {
   position: fixed;
@@ -744,6 +769,7 @@ html:not([data-theme]) .icon-moon { display: block; }
   .page-content { padding: 24px 20px; }
 
   /* Topbar */
+  .topbar__hamburger { display: flex; }
   .topbar__inner { gap: 8px; padding: 0 12px; }
   .topbar__logo { font-size: 14px; flex-shrink: 0; }
   .topbar__nav { margin-left: auto; flex-shrink: 0; }
