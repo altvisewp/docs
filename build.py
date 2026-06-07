@@ -89,6 +89,18 @@ SIDEBAR = [
             ('Changelog',       'bulk-variations-for-woocommerce/changelog.html',      False),
         ]
     },
+    {
+        'label': 'Page Categorizer',
+        'visible': True,
+        'items': [
+            ('Overview',        'page-categorizer/index.html',          False),
+            ('Installation',    'page-categorizer/installation.html',   False),
+            ('Getting Started', 'page-categorizer/getting-started.html',False),
+            ('Use Cases',       'page-categorizer/use-cases.html',      False),
+            ('FAQ',             'page-categorizer/faq.html',            False),
+            ('Changelog',       'page-categorizer/changelog.html',      False),
+        ]
+    },
 ]
 
 # Page sequence for prev/next navigation
@@ -113,6 +125,13 @@ PAGE_SEQUENCE = [
     ('BVW Shortcode',       '/bulk-variations-for-woocommerce/shortcode'),
     ('BVW FAQ',             '/bulk-variations-for-woocommerce/faq'),
     ('BVW Changelog',       '/bulk-variations-for-woocommerce/changelog'),
+    # Page Categorizer
+    ('PC Overview',         '/page-categorizer/'),
+    ('PC Installation',     '/page-categorizer/installation'),
+    ('PC Getting Started',  '/page-categorizer/getting-started'),
+    ('PC Use Cases',        '/page-categorizer/use-cases'),
+    ('PC FAQ',              '/page-categorizer/faq'),
+    ('PC Changelog',        '/page-categorizer/changelog'),
 ]
 
 # ── Markdown to HTML ──────────────────────────────────────
@@ -693,6 +712,67 @@ PAGES = [
         'is_pro':    False,
         'visible':   True,
     },
+    # ── Page Categorizer ─────────────────────────────────────
+    {
+        'src':       'docs/page-categorizer/README.md',
+        'dst':       'page-categorizer/index.html',
+        'title':     'Page Categorizer',
+        'section':   'Page Categorizer',
+        'url':       '/page-categorizer/',
+        'breadcrumb': [('Home', '/'), ('Page Categorizer', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/page-categorizer/installation.md',
+        'dst':       'page-categorizer/installation.html',
+        'title':     'Installation',
+        'section':   'Page Categorizer',
+        'url':       '/page-categorizer/installation',
+        'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Installation', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/page-categorizer/getting-started.md',
+        'dst':       'page-categorizer/getting-started.html',
+        'title':     'Getting Started',
+        'section':   'Page Categorizer',
+        'url':       '/page-categorizer/getting-started',
+        'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Getting Started', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/page-categorizer/use-cases.md',
+        'dst':       'page-categorizer/use-cases.html',
+        'title':     'Use Cases',
+        'section':   'Page Categorizer',
+        'url':       '/page-categorizer/use-cases',
+        'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Use Cases', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/page-categorizer/faq.md',
+        'dst':       'page-categorizer/faq.html',
+        'title':     'FAQ',
+        'section':   'Page Categorizer',
+        'url':       '/page-categorizer/faq',
+        'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('FAQ', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/page-categorizer/changelog.md',
+        'dst':       'page-categorizer/changelog.html',
+        'title':     'Changelog',
+        'section':   'Page Categorizer',
+        'url':       '/page-categorizer/changelog',
+        'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Changelog', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
 ]
 
 # ── Homepage ──────────────────────────────────────────────
@@ -783,6 +863,17 @@ HOMEPAGE = '''<!DOCTYPE html>
           <div class="product-card__body">
             <h3 class="product-card__name">Bulk Variations for WooCommerce</h3>
             <p class="product-card__desc">Create a variation attribute across all WooCommerce variable products in one click, with global price adjustments.</p>
+          </div>
+          <div class="product-card__arrow">→</div>
+        </a>
+
+        <a href="/page-categorizer/" class="product-card">
+          <div class="product-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V7z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Page Categorizer</h3>
+            <p class="product-card__desc">Assign categories and tags to WordPress Pages. Activate and it works — no configuration required.</p>
           </div>
           <div class="product-card__arrow">→</div>
         </a>

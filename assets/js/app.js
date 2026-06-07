@@ -39,6 +39,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
     { title: 'Shortcode', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/shortcode', excerpt: 'Use [variations attribute="your_attribute"] to display a grid of variation terms. Cookie-based selection lasts 30 days.' },
     { title: 'FAQ', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/faq', excerpt: 'FAQ on bulk variation creation, price adjustments, shortcode, and WooCommerce HPOS compatibility.' },
     { title: 'Changelog', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/changelog', excerpt: 'Release history for Bulk Variations for WooCommerce.' },
+
+    // Page Categorizer
+    { title: 'Overview', section: 'Page Categorizer', url: '/page-categorizer/', excerpt: 'Add categories and tags to WordPress Pages. Zero configuration — activate and it works immediately.' },
+    { title: 'Installation', section: 'Page Categorizer', url: '/page-categorizer/installation', excerpt: 'Install from WordPress dashboard or via FTP. Requires WordPress 6.0 and PHP 7.4. No configuration needed.' },
+    { title: 'Getting Started', section: 'Page Categorizer', url: '/page-categorizer/getting-started', excerpt: 'Assign categories and tags to pages from the page editing screen, just like posts.' },
+    { title: 'Use Cases', section: 'Page Categorizer', url: '/page-categorizer/use-cases', excerpt: 'Category-based page listings, archive integration, hiding pages, knowledge base structure, shortcode examples.' },
+    { title: 'FAQ', section: 'Page Categorizer', url: '/page-categorizer/faq', excerpt: 'FAQ on category sharing, archive pages, compatibility, and data retention after deactivation.' },
+    { title: 'Changelog', section: 'Page Categorizer', url: '/page-categorizer/changelog', excerpt: 'Release history for Page Categorizer.' },
   ];
 
   // ── Search logic ─────────────────────────────────────────
