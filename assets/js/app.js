@@ -30,6 +30,15 @@ document.addEventListener( 'DOMContentLoaded', function () {
     { title: 'Changelog', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/changelog', excerpt: 'Release history. Version 3.2.0 includes new admin UI, export/import, multisite, and Pro coming soon page.' },
     // Pro and Account — hidden until Pro launch
     // Add back when visible: True in build.py
+
+    // Bulk Variations for WooCommerce
+    { title: 'Overview', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/', excerpt: 'Create variation attributes across all WooCommerce variable products in one operation. Free plugin.' },
+    { title: 'Installation', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/installation', excerpt: 'Install from WordPress dashboard or via FTP. Requires WooCommerce 8.0 and PHP 8.0.' },
+    { title: 'Getting Started', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/getting-started', excerpt: 'Set attribute slug, variation term, price adjustment percentage, then click Save & Apply.' },
+    { title: 'Settings', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/settings', excerpt: 'Attribute slug, variation term name, price adjustment percentage. Save & Apply runs the bulk operation.' },
+    { title: 'Shortcode', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/shortcode', excerpt: 'Use [variations attribute="your_attribute"] to display a grid of variation terms. Cookie-based selection lasts 30 days.' },
+    { title: 'FAQ', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/faq', excerpt: 'FAQ on bulk variation creation, price adjustments, shortcode, and WooCommerce HPOS compatibility.' },
+    { title: 'Changelog', section: 'Bulk Variations for WooCommerce', url: '/bulk-variations-for-woocommerce/changelog', excerpt: 'Release history for Bulk Variations for WooCommerce.' },
   ];
 
   // ── Search logic ─────────────────────────────────────────

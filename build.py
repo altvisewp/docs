@@ -75,7 +75,20 @@ SIDEBAR = [
             ('Billing and Renewals',    'account/billing-and-renewals.html',   False),
             ('Refunds',                 'account/refunds.html',                False),
         ]
-    }
+    },
+    {
+        'label': 'Bulk Variations for WooCommerce',
+        'visible': True,
+        'items': [
+            ('Overview',        'bulk-variations-for-woocommerce/index.html',          False),
+            ('Installation',    'bulk-variations-for-woocommerce/installation.html',   False),
+            ('Getting Started', 'bulk-variations-for-woocommerce/getting-started.html',False),
+            ('Settings',        'bulk-variations-for-woocommerce/settings.html',       False),
+            ('Shortcode',       'bulk-variations-for-woocommerce/shortcode.html',      False),
+            ('FAQ',             'bulk-variations-for-woocommerce/faq.html',            False),
+            ('Changelog',       'bulk-variations-for-woocommerce/changelog.html',      False),
+        ]
+    },
 ]
 
 # Page sequence for prev/next navigation
@@ -92,6 +105,14 @@ PAGE_SEQUENCE = [
     ('FAQ',                 '/footnotes-made-easy/faq'),
     ('Changelog',           '/footnotes-made-easy/changelog'),
     # Pro and Account hidden until Pro launch — add back when visible: True
+    # BVW
+    ('BVW Overview',        '/bulk-variations-for-woocommerce/'),
+    ('BVW Installation',    '/bulk-variations-for-woocommerce/installation'),
+    ('BVW Getting Started', '/bulk-variations-for-woocommerce/getting-started'),
+    ('BVW Settings',        '/bulk-variations-for-woocommerce/settings'),
+    ('BVW Shortcode',       '/bulk-variations-for-woocommerce/shortcode'),
+    ('BVW FAQ',             '/bulk-variations-for-woocommerce/faq'),
+    ('BVW Changelog',       '/bulk-variations-for-woocommerce/changelog'),
 ]
 
 # ── Markdown to HTML ──────────────────────────────────────
@@ -601,6 +622,77 @@ PAGES = [
         'is_pro':    False,
         'visible':  False,
     },
+    # ── Bulk Variations for WooCommerce ──────────────────────
+    {
+        'src':       'docs/bulk-variations-for-woocommerce/README.md',
+        'dst':       'bulk-variations-for-woocommerce/index.html',
+        'title':     'Bulk Variations for WooCommerce',
+        'section':   'Bulk Variations for WooCommerce',
+        'url':       '/bulk-variations-for-woocommerce/',
+        'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/bulk-variations-for-woocommerce/installation.md',
+        'dst':       'bulk-variations-for-woocommerce/installation.html',
+        'title':     'Installation',
+        'section':   'Bulk Variations for WooCommerce',
+        'url':       '/bulk-variations-for-woocommerce/installation',
+        'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Installation', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/bulk-variations-for-woocommerce/getting-started.md',
+        'dst':       'bulk-variations-for-woocommerce/getting-started.html',
+        'title':     'Getting Started',
+        'section':   'Bulk Variations for WooCommerce',
+        'url':       '/bulk-variations-for-woocommerce/getting-started',
+        'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Getting Started', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/bulk-variations-for-woocommerce/settings.md',
+        'dst':       'bulk-variations-for-woocommerce/settings.html',
+        'title':     'Settings',
+        'section':   'Bulk Variations for WooCommerce',
+        'url':       '/bulk-variations-for-woocommerce/settings',
+        'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Settings', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/bulk-variations-for-woocommerce/shortcode.md',
+        'dst':       'bulk-variations-for-woocommerce/shortcode.html',
+        'title':     'Shortcode',
+        'section':   'Bulk Variations for WooCommerce',
+        'url':       '/bulk-variations-for-woocommerce/shortcode',
+        'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Shortcode', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/bulk-variations-for-woocommerce/faq.md',
+        'dst':       'bulk-variations-for-woocommerce/faq.html',
+        'title':     'FAQ',
+        'section':   'Bulk Variations for WooCommerce',
+        'url':       '/bulk-variations-for-woocommerce/faq',
+        'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('FAQ', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
+    {
+        'src':       'docs/bulk-variations-for-woocommerce/changelog.md',
+        'dst':       'bulk-variations-for-woocommerce/changelog.html',
+        'title':     'Changelog',
+        'section':   'Bulk Variations for WooCommerce',
+        'url':       '/bulk-variations-for-woocommerce/changelog',
+        'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Changelog', None)],
+        'is_pro':    False,
+        'visible':   True,
+    },
 ]
 
 # ── Homepage ──────────────────────────────────────────────
@@ -680,6 +772,17 @@ HOMEPAGE = '''<!DOCTYPE html>
           <div class="product-card__body">
             <h3 class="product-card__name">Footnotes Made Easy</h3>
             <p class="product-card__desc">Add professional footnotes to WordPress posts and pages using a simple inline syntax. Free on WordPress.org.</p>
+          </div>
+          <div class="product-card__arrow">→</div>
+        </a>
+
+        <a href="/bulk-variations-for-woocommerce/" class="product-card">
+          <div class="product-card__icon">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16 16l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="product-card__body">
+            <h3 class="product-card__name">Bulk Variations for WooCommerce</h3>
+            <p class="product-card__desc">Create a variation attribute across all WooCommerce variable products in one click, with global price adjustments.</p>
           </div>
           <div class="product-card__arrow">→</div>
         </a>

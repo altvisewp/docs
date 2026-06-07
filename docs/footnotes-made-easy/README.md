@@ -13,7 +13,7 @@ Footnotes Made Easy is a free WordPress plugin that lets you add professional fo
 Wrap any footnote content in double parentheses anywhere in your post:
 
 ```
-This is your post content ((and this is the footnote text)).
+This is your post content.((This is the footnote text.))
 ```
 
 When the post is published, the plugin automatically:
@@ -60,3 +60,13 @@ Footnotes Made Easy Pro is a premium add-on that extends the free plugin with:
 - [Multisite](multisite.md)
 - [FAQ](faq.md)
 - [Changelog](changelog.md)
+
+### Pro `PRO`
+- [Installation](pro-installation.md)
+- [License Activation](pro-license-activation.md)
+- [Citations — Overview](pro-citations-overview.md)
+- [Citations — Source Types](pro-citations-source-types.md)
+- [Citations — Styles](pro-citations-styles.md)
+- [Footnote Library](pro-library.md)
+- [Gutenberg Sidebar](pro-gutenberg-sidebar.md)
+- [FAQ (Pro)](pro-faq.md)
