@@ -743,14 +743,24 @@ html:not([data-theme]) .icon-moon { display: block; }
   .main { margin-left: 0; }
   .page-content { padding: 24px 20px; }
 
-  /* Topbar — shrink search, keep toggle always visible */
+  /* Topbar */
   .topbar__inner { gap: 8px; padding: 0 12px; }
-  .topbar__search { min-width: 0; flex-shrink: 1; }
-  .topbar__search kbd { display: none; }
-  .topbar__nav { margin-left: 0; flex-shrink: 0; }
+  .topbar__logo { font-size: 14px; flex-shrink: 0; }
+  .topbar__nav { margin-left: auto; flex-shrink: 0; }
   .topbar__nav a { display: none; }
   .topbar__nav .theme-toggle { display: flex !important; flex-shrink: 0; }
-  .topbar__logo { font-size: 14px; flex-shrink: 0; }
+
+  /* Search — icon only, no text input */
+  .topbar__search {
+    flex: 0 0 auto;
+    width: 36px;
+    min-width: 0;
+    padding: 7px;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .topbar__search input,
+  .topbar__search kbd { display: none; }
 
   /* Footer — centered */
   .footer { padding: 20px 16px; }
