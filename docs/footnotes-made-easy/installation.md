@@ -2,14 +2,12 @@
 
 Footnotes Made Easy can be installed directly from the WordPress dashboard or manually via FTP.
 
-## Method 1 — Install from WordPress dashboard 
-
-<img width="1640" height="624" alt="rererere" src="https://github.com/user-attachments/assets/e1200b8e-aeaf-4277-9c60-a2e4e03cd07e" />
+## Method 1 — Install from WordPress dashboard (recommended)
 
 1. Log in to your WordPress admin dashboard
 2. Go to **Plugins → Add New**
 3. Search for **Footnotes Made Easy**
-4. Click **Install Now** on the plugin
+4. Click **Install Now** on the plugin by AltviseWP
 5. Click **Activate** once installation is complete
 
 The plugin is now active. A new **Footnotes** menu item will appear in your admin sidebar.
@@ -35,7 +33,7 @@ The plugin is now active. A new **Footnotes** menu item will appear in your admi
 
 ## After activation
 
-After activating the plugin, navigate **Footnotes Made Easy Dashboard**.
+After activating the plugin, you will be redirected to the **Footnotes Made Easy Dashboard**. If this is a new installation, a welcome modal will appear introducing the plugin's features.
 
 No configuration is required to start using the plugin — it works immediately with the default `(( ))` syntax.
 

@@ -46,6 +46,7 @@ SIDEBAR = [
     {
         'label': 'Footnotes Made Easy Pro',
         'pro': True,
+        'visible': False,
         'items': [
             ('Installation',        'footnotes-made-easy/pro-installation.html',          True),
             ('License Activation',  'footnotes-made-easy/pro-license-activation.html',    True),
@@ -68,6 +69,7 @@ SIDEBAR = [
     },
     {
         'label': 'Account',
+        'visible': False,
         'items': [
             ('Managing Your License',   'account/managing-your-license.html',  False),
             ('Billing and Renewals',    'account/billing-and-renewals.html',   False),
@@ -89,17 +91,7 @@ PAGE_SEQUENCE = [
     ('Multisite',           '/footnotes-made-easy/multisite'),
     ('FAQ',                 '/footnotes-made-easy/faq'),
     ('Changelog',           '/footnotes-made-easy/changelog'),
-    ('Pro Installation',    '/footnotes-made-easy/pro-installation'),
-    ('License Activation',  '/footnotes-made-easy/pro-license-activation'),
-    ('Citations Overview',  '/footnotes-made-easy/pro-citations-overview'),
-    ('Source Types',        '/footnotes-made-easy/pro-citations-source-types'),
-    ('Citation Styles',     '/footnotes-made-easy/pro-citations-styles'),
-    ('Footnote Library',    '/footnotes-made-easy/pro-library'),
-    ('Gutenberg Sidebar',   '/footnotes-made-easy/pro-gutenberg-sidebar'),
-    ('Pro FAQ',             '/footnotes-made-easy/pro-faq'),
-    ('Managing License',    '/account/managing-your-license'),
-    ('Billing & Renewals',  '/account/billing-and-renewals'),
-    ('Refunds',             '/account/refunds'),
+    # Pro and Account hidden until Pro launch — add back when visible: True
 ]
 
 # ── Markdown to HTML ──────────────────────────────────────
@@ -227,6 +219,8 @@ def md_to_html(md):
 def build_sidebar(active_url=''):
     html = ''
     for group in SIDEBAR:
+        if not group.get('visible', True):
+            continue
         pro_label = '<span class="badge-pro">Pro</span>' if group.get('pro') else ''
 
         # Check if any link in this group matches the active URL
@@ -290,6 +284,7 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} — AltviseWP Docs</title>
 <meta name="description" content="{title} — AltviseWP documentation.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{FONT_URL}" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
@@ -500,6 +495,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-installation',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Installation', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-license-activation.md',
@@ -509,6 +505,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-license-activation',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('License Activation', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-citations-overview.md',
@@ -518,6 +515,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-citations-overview',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Citations', None), ('Overview', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-citations-source-types.md',
@@ -527,6 +525,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-citations-source-types',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Citations', None), ('Source Types', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-citations-styles.md',
@@ -536,6 +535,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-citations-styles',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Citations', None), ('Styles', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-library.md',
@@ -545,6 +545,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-library',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Library', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-gutenberg-sidebar.md',
@@ -554,6 +555,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-gutenberg-sidebar',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Gutenberg Sidebar', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-faq.md',
@@ -563,6 +565,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-faq',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('FAQ', None)],
         'is_pro':    True,
+        'visible':  False,
     },
     # Account
     {
@@ -573,6 +576,7 @@ PAGES = [
         'url':       '/account/managing-your-license',
         'breadcrumb': [('Home', '/'), ('Account', None), ('Managing Your License', None)],
         'is_pro':    False,
+        'visible':  False,
     },
     {
         'src':       'docs/account/billing-and-renewals.md',
@@ -582,6 +586,7 @@ PAGES = [
         'url':       '/account/billing-and-renewals',
         'breadcrumb': [('Home', '/'), ('Account', None), ('Billing and Renewals', None)],
         'is_pro':    False,
+        'visible':  False,
     },
     {
         'src':       'docs/account/refunds.md',
@@ -591,6 +596,7 @@ PAGES = [
         'url':       '/account/refunds',
         'breadcrumb': [('Home', '/'), ('Account', None), ('Refunds', None)],
         'is_pro':    False,
+        'visible':  False,
     },
 ]
 
@@ -602,6 +608,7 @@ HOMEPAGE = '''<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AltviseWP Documentation</title>
 <meta name="description" content="Official documentation for all AltviseWP WordPress plugins and products.">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{font_url}" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
@@ -667,22 +674,7 @@ HOMEPAGE = '''<!DOCTYPE html>
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name">Footnotes Made Easy</h3>
-            <p class="product-card__desc">Add professional footnotes to WordPress posts and pages. Free plugin + Pro add-on with citations, Library, and Gutenberg sidebar.</p>
-            <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
-              <span style="font-size:11px;background:var(--brand-xl);color:var(--brand);padding:2px 8px;border-radius:10px;font-weight:600;">Free</span>
-              <span style="font-size:11px;background:#fff8ee;color:var(--btn-bg);padding:2px 8px;border-radius:10px;font-weight:600;">Pro</span>
-            </div>
-          </div>
-          <div class="product-card__arrow">→</div>
-        </a>
-
-        <a href="/account/managing-your-license" class="product-card">
-          <div class="product-card__icon">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
-          </div>
-          <div class="product-card__body">
-            <h3 class="product-card__name">Account</h3>
-            <p class="product-card__desc">Manage your license, billing, renewals, and refund requests.</p>
+            <p class="product-card__desc">Add professional footnotes to WordPress posts and pages using a simple inline syntax. Free on WordPress.org.</p>
           </div>
           <div class="product-card__arrow">→</div>
         </a>
@@ -694,9 +686,9 @@ HOMEPAGE = '''<!DOCTYPE html>
           <a href="/footnotes-made-easy/getting-started" class="quick-link">Getting Started</a>
           <a href="/footnotes-made-easy/installation" class="quick-link">Installation</a>
           <a href="/footnotes-made-easy/faq" class="quick-link">FAQ</a>
-          <a href="/footnotes-made-easy/pro-license-activation" class="quick-link">License Activation</a>
-          <a href="/footnotes-made-easy/pro-citations-overview" class="quick-link">Citations Overview</a>
-          <a href="/account/refunds" class="quick-link">Refund Policy</a>
+          <a href="/footnotes-made-easy/settings/display" class="quick-link">Display Settings</a>
+          <a href="/footnotes-made-easy/multisite" class="quick-link">Multisite</a>
+          <a href="/footnotes-made-easy/tools" class="quick-link">Tools</a>
         </div>
       </div>
 
@@ -729,7 +721,8 @@ def build():
     # Copy static assets
     shutil.copytree('assets/css', f'{BUILD_DIR}/css')
     shutil.copytree('assets/js',  f'{BUILD_DIR}/js')
-    shutil.copy('assets/.htaccess', f'{BUILD_DIR}/.htaccess')
+    shutil.copy('assets/.htaccess',   f'{BUILD_DIR}/.htaccess')
+    shutil.copy('assets/favicon.svg', f'{BUILD_DIR}/favicon.svg')
 
     # Build homepage
     with open(f'{BUILD_DIR}/index.html', 'w') as f:
@@ -738,6 +731,8 @@ def build():
 
     # Build all doc pages
     for page in PAGES:
+        if not page.get('visible', True):
+            continue
         src = page['src']
         if not os.path.exists(src):
             print(f'  ⚠  MISSING: {src}')

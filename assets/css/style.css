@@ -741,8 +741,18 @@ html:not([data-theme]) .icon-moon { display: block; }
   .sidebar.open { transform: translateX(0); }
   .main { margin-left: 0; }
   .page-content { padding: 24px 20px; }
-  .topbar__nav a:not(:last-child) { display: none; }
+  .topbar__nav a { display: none; }
+  .topbar__nav .theme-toggle { display: flex; }
   .topbar__search kbd { display: none; }
   .footer { padding: 20px; }
-  .footer__inner { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .footer__inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+  }
+  .footer__links {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }

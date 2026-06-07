@@ -1,4 +1,16 @@
 /* AltviseWP Docs — app.js */
+
+// ── Sidebar toggle — must be global for onclick to work ───
+function toggleSidebarGroup( label ) {
+  var group  = label.parentElement;
+  var items  = group.querySelector( '.sidenav__items' );
+  var arrow  = label.querySelector( '.sidenav__arrow' );
+  if ( ! items ) return;
+  var hidden = items.style.display === 'none';
+  items.style.display = hidden ? 'block' : 'none';
+  if ( arrow ) arrow.textContent = hidden ? '▾' : '▸';
+}
+
 document.addEventListener( 'DOMContentLoaded', function () {
 
   // ── Search index ────────────────────────────────────────
@@ -16,19 +28,8 @@ document.addEventListener( 'DOMContentLoaded', function () {
     { title: 'Multisite', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/multisite', excerpt: 'Network managed mode or per-subsite override. Configure from network admin.' },
     { title: 'FAQ', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/faq', excerpt: 'Frequently asked questions about installation, settings, compatibility, and the Pro version.' },
     { title: 'Changelog', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/changelog', excerpt: 'Release history. Version 3.2.0 includes new admin UI, export/import, multisite, and Pro coming soon page.' },
-    // Pro
-    { title: 'Pro — Installation', section: 'Footnotes Made Easy Pro', url: '/footnotes-made-easy/pro-installation', excerpt: 'Download from your account, install via WordPress dashboard. Requires free plugin to be active.' },
-    { title: 'License Activation', section: 'Footnotes Made Easy Pro', url: '/footnotes-made-easy/pro-license-activation', excerpt: 'Enter license key at Footnotes → License. Activation limits, deactivation, transfer, multisite.' },
-    { title: 'Citations — Overview', section: 'Footnotes Made Easy Pro › Citations', url: '/footnotes-made-easy/pro-citations-overview', excerpt: 'APA, MLA, and Chicago citation formatting. DOI and ISBN auto-fetch. Set default citation style.' },
-    { title: 'Citations — Source Types', section: 'Footnotes Made Easy Pro › Citations', url: '/footnotes-made-easy/pro-citations-source-types', excerpt: '10 source types: book, journal article, website, newspaper, magazine, film, thesis, book chapter, conference paper, other.' },
-    { title: 'Citations — Styles', section: 'Footnotes Made Easy Pro › Citations', url: '/footnotes-made-easy/pro-citations-styles', excerpt: 'APA 7th edition, MLA 9th edition, Chicago 17th edition Notes-Bibliography formatting rules and examples.' },
-    { title: 'Footnote Library', section: 'Footnotes Made Easy Pro', url: '/footnotes-made-easy/pro-library', excerpt: 'Save footnotes once and reuse across posts. Search, import, export the Library.' },
-    { title: 'Gutenberg Sidebar', section: 'Footnotes Made Easy Pro', url: '/footnotes-made-easy/pro-gutenberg-sidebar', excerpt: 'Manage footnotes from the block editor sidebar. Add, edit, delete, insert from Library, citation mode.' },
-    { title: 'Pro — FAQ', section: 'Footnotes Made Easy Pro', url: '/footnotes-made-easy/pro-faq', excerpt: 'FAQ on licensing, citations, library, and Gutenberg sidebar for Footnotes Made Easy Pro.' },
-    // Account
-    { title: 'Managing Your License', section: 'Account', url: '/account/managing-your-license', excerpt: 'View, activate, deactivate, transfer, and renew your AltviseWP license from your account dashboard.' },
-    { title: 'Billing and Renewals', section: 'Account', url: '/account/billing-and-renewals', excerpt: 'Payment methods (Stripe, PayPal), invoices, auto-renewal, cancellation, failed payments.' },
-    { title: 'Refunds', section: 'Account', url: '/account/refunds', excerpt: '14-day money-back guarantee. How to request a refund, processing time, post-refund steps.' },
+    // Pro and Account — hidden until Pro launch
+    // Add back when visible: True in build.py
   ];
 
   // ── Search logic ─────────────────────────────────────────
@@ -169,16 +170,5 @@ document.addEventListener( 'DOMContentLoaded', function () {
       localStorage.setItem( 'apu-theme', next );
     } );
   }
-
-  // ── Sidebar toggle ────────────────────────────────────────
-  window.toggleSidebarGroup = function ( label ) {
-    var group  = label.parentElement;
-    var items  = group.querySelector( '.sidenav__items' );
-    var arrow  = label.querySelector( '.sidenav__arrow' );
-    if ( ! items ) return;
-    var hidden = items.style.display === 'none';
-    items.style.display = hidden ? 'block' : 'none';
-    if ( arrow ) arrow.textContent = hidden ? '▾' : '▸';
-  };
 
 } );
