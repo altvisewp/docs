@@ -70,6 +70,62 @@ For example, to use `{fn` and `}` instead:
 This is your content.{fnThis is the footnote text.}
 ```
 
+## Paginated posts
+
+If you use WordPress's `<!--nextpage-->` tag to split a long post into multiple pages, each page will have its own set of footnotes with numbering that restarts at 1. This is default WordPress behaviour.
+
+To maintain a continuous footnote sequence across pages, you need to tell the plugin what number to start from on each page. Add a tag between each `<!--nextpage-->` marker like this:
+
+```
+<!--startnum=5-->
+```
+
+Replace `5` with the number you want the first footnote on that page to use. For example, if the first page has four footnotes, the second page should start at 5.
+
+**Example structure:**
+
+```
+Page one content with footnotes.((First footnote.))((Second footnote.))
+
+<!--nextpage-->
+<!--startnum=3-->
+
+Page two content continues here.((Third footnote.))
+```
+
+You need to know in advance how many footnotes are on each page to set the correct start numbers, so this is best done after you have finished writing the content.
+
+## Referencing a previous footnote
+
+Sometimes you need to refer to a footnote you have already used earlier in the post. There are two ways to do this.
+
+### Method 1 — Repeat the exact text (recommended)
+
+Insert the same footnote text again and the plugin will recognise it as a duplicate and reference the original entry instead of creating a new one. This requires the **Combine identical footnotes** option to be enabled under **Footnotes Settings → Behaviour**.
+
+```
+Here is the first reference.((Smith, J. 2021. The Art of Writing.))
+Here is the second reference to the same source.((Smith, J. 2021. The Art of Writing.))
+```
+
+Both markers will point to the same footnote entry in the list.
+
+### Method 2 — Reference by number
+
+Use the `((ref:N))` syntax to reference a footnote by its number, where `N` is the footnote's sequential number:
+
+```
+Here is the original footnote.((Smith, J. 2021. The Art of Writing.))
+Here is a reference back to footnote one.((ref:1))
+```
+
+**Limitations of number referencing:**
+
+- It does not work across pages in a paginated post — only within a single page
+- If you insert a new footnote before the referenced one later, the number will be wrong unless you update the `ref:N` value manually
+
+For these reasons, repeating the exact text is the more reliable approach for anything other than simple single-page posts.
+
 ## Next steps
 
 - [Settings — Display](settings/display.md) — change identifier style, header text, and tooltip behaviour

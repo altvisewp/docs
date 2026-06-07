@@ -19,7 +19,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
     // Footnotes Made Easy (free)
     { title: 'Overview', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/index', excerpt: 'Free WordPress plugin for adding professional footnotes to posts and pages using simple inline syntax.' },
     { title: 'Installation', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/installation', excerpt: 'Install from WordPress dashboard, upload ZIP, or manual FTP. Requirements: WordPress 6.0, PHP 7.4.' },
-    { title: 'Getting Started', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/getting-started', excerpt: 'Wrap footnote text in double parentheses (( )) anywhere in your content. Automatic numbering and linking.' },
+    { title: 'Getting Started', section: 'Footnotes Made Easy', url: '/footnotes-made-easy/getting-started', excerpt: 'Wrap footnote text in double parentheses (( )). Automatic numbering. Paginated posts with startnum. Referencing previous footnotes with ref:N.' },
     { title: 'Settings — Display', section: 'Footnotes Made Easy › Settings', url: '/footnotes-made-easy/settings/display', excerpt: 'Configure footnote identifiers, back links, header and footer text, and tooltip behaviour.' },
     { title: 'Settings — Behaviour', section: 'Footnotes Made Easy › Settings', url: '/footnotes-made-easy/settings/behaviour', excerpt: 'Back link position, combining identical footnotes, processing priority.' },
     { title: 'Settings — Suppress', section: 'Footnotes Made Easy › Settings', url: '/footnotes-made-easy/settings/suppress', excerpt: 'Hide footnotes on homepage, archives, feeds, specific post types, or custom URLs.' },
