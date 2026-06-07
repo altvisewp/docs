@@ -96,9 +96,14 @@ document.addEventListener( 'DOMContentLoaded', function () {
   }
 
   var topbarSearch = document.querySelector( '.topbar__search' );
-  topbarInput.addEventListener( 'click', openSearch );
-  topbarInput.addEventListener( 'focus', openSearch );
-  if ( topbarSearch ) topbarSearch.addEventListener( 'click', openSearch );
+  if ( topbarSearch ) {
+    [ 'click', 'touchstart' ].forEach( function ( evt ) {
+      topbarSearch.addEventListener( evt, function ( e ) {
+        e.preventDefault();
+        openSearch();
+      }, { passive: false } );
+    } );
+  }
   closeBtn.addEventListener( 'click', closeSearch );
 
   overlay.addEventListener( 'click', function ( e ) {
@@ -166,8 +171,22 @@ document.addEventListener( 'DOMContentLoaded', function () {
     document.body.style.overflow = '';
   }
 
-  if ( sidebarToggle ) sidebarToggle.addEventListener( 'click', openSidebar );
-  if ( sidebarOverlay ) sidebarOverlay.addEventListener( 'click', closeSidebar );
+  if ( sidebarToggle ) {
+    [ 'click', 'touchstart' ].forEach( function ( evt ) {
+      sidebarToggle.addEventListener( evt, function ( e ) {
+        e.preventDefault();
+        openSidebar();
+      }, { passive: false } );
+    } );
+  }
+  if ( sidebarOverlay ) {
+    [ 'click', 'touchstart' ].forEach( function ( evt ) {
+      sidebarOverlay.addEventListener( evt, function ( e ) {
+        e.preventDefault();
+        closeSidebar();
+      }, { passive: false } );
+    } );
+  }
 
   // ── Theme toggle ─────────────────────────────────────────
   var html        = document.documentElement;

@@ -78,9 +78,9 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-/* Hamburger — hidden on desktop, visible on mobile */
+/* Hamburger — desktop: hidden, mobile: visible (see @media below) */
 .topbar__hamburger {
-  display: none;
+  display: none !important;
   background: none;
   border: none;
   color: #fff;
@@ -768,7 +768,7 @@ html:not([data-theme]) .icon-moon { display: block; }
   .page-content { padding: 24px 20px; }
 
   /* Topbar */
-  .topbar__hamburger { display: flex; }
+  .topbar__hamburger { display: flex !important; }
   .topbar__inner { gap: 8px; padding: 0 12px; }
   .topbar__logo { font-size: 14px; flex-shrink: 0; }
   .topbar__nav { margin-left: auto; flex-shrink: 0; }
