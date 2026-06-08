@@ -1141,6 +1141,7 @@ def build():
     shutil.copytree('assets/js',  f'{BUILD_DIR}/js')
     shutil.copy('assets/.htaccess',   f'{BUILD_DIR}/.htaccess')
     shutil.copy('assets/favicon.svg', f'{BUILD_DIR}/favicon.svg')
+    shutil.copy('assets/google5dc94f58813cb64b.html', f'{BUILD_DIR}/google5dc94f58813cb64b.html')
 
     # Build homepage
     with open(f'{BUILD_DIR}/index.html', 'w') as f:
