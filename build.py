@@ -390,6 +390,14 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{FONT_URL}" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RMNVPNH492"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', 'G-RMNVPNH492');
+</script>
 </head>
 <body>
 
@@ -994,6 +1002,14 @@ HOMEPAGE = '''<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{font_url}" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RMNVPNH492"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+  gtag('config', 'G-RMNVPNH492');
+</script>
 </head>
 <body>
 
