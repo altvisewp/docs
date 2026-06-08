@@ -338,17 +338,54 @@ def build_sidebar(active_url=''):
     return html
 
 # ── Page template ─────────────────────────────────────────
-def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pro=False, active_url=''):
-    pro_badge = '<span class="badge-pro">Pro</span>' if is_pro else ''
+def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pro=False, active_url='', description='', page_url=''):
+    pro_badge    = '<span class="badge-pro">Pro</span>' if is_pro else ''
     sidebar_html = build_sidebar(active_url)
+    plugin_name  = section.split(' › ')[0] if section else 'AltviseWP'
+    meta_desc    = description if description else f'{title} — {plugin_name} documentation on AltviseWP Docs.'
+    canonical    = f'https://docs.altvisewp.com{page_url}' if page_url else 'https://docs.altvisewp.com'
+    og_title     = f'{title} \u2039 {plugin_name} | AltviseWP Docs'
+
+    # Build BreadcrumbList JSON-LD from breadcrumb_html is complex — use page_url instead
+    crumb_items  = []
+    crumb_parts  = [('Home', 'https://docs.altvisewp.com')]
+    if plugin_name and plugin_name != 'AltviseWP':
+        plugin_slug = page_url.strip('/').split('/')[0] if page_url else ''
+        crumb_parts.append((plugin_name, f'https://docs.altvisewp.com/{plugin_slug}/'))
+    if title not in (plugin_name, 'Home'):
+        crumb_parts.append((title, canonical))
+    for i, (name, url_c) in enumerate(crumb_parts, 1):
+        crumb_items.append(f'{{"@type":"ListItem","position":{i},"name":"{name}","item":"{url_c}"}}')
+    breadcrumb_ld = ','.join(crumb_items)
 
     return f'''<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} — AltviseWP Docs</title>
-<meta name="description" content="{title} — AltviseWP documentation.">
+<title>{title} &lt; {plugin_name} | AltviseWP Docs</title>
+<meta name="description" content="{meta_desc}">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="{canonical}">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="{og_title}">
+<meta property="og:description" content="{meta_desc}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="AltviseWP Docs">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{og_title}">
+<meta name="twitter:description" content="{meta_desc}">
+<meta name="twitter:site" content="@altvisewp">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{breadcrumb_ld}]}}
+</script>
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{FONT_URL}" rel="stylesheet">
@@ -461,6 +498,7 @@ PAGES = [
         'title':     'Footnotes Made Easy',
         'section':   'Footnotes Made Easy',
         'url':       '/footnotes-made-easy/',
+        'description': 'Complete documentation for Footnotes Made Easy — the WordPress plugin for adding professional footnotes to posts and pages.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', None)],
         'is_pro':    False,
     },
@@ -470,6 +508,7 @@ PAGES = [
         'title':     'Installation',
         'section':   'Footnotes Made Easy',
         'url':       '/footnotes-made-easy/installation',
+        'description': 'How to install Footnotes Made Easy on WordPress. Install via the dashboard, upload a ZIP, or manually via FTP.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Installation', None)],
         'is_pro':    False,
     },
@@ -479,6 +518,7 @@ PAGES = [
         'title':     'Getting Started',
         'section':   'Footnotes Made Easy',
         'url':       '/footnotes-made-easy/getting-started',
+        'description': 'Add your first footnote in seconds using the (( )) syntax. Covers basic usage, paginated posts, and footnote referencing.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Getting Started', None)],
         'is_pro':    False,
     },
@@ -488,6 +528,7 @@ PAGES = [
         'title':     'Settings — Display',
         'section':   'Footnotes Made Easy › Settings',
         'url':       '/footnotes-made-easy/settings/display',
+        'description': 'Configure footnote identifier style, back-link format, header text, and tooltip behaviour in Footnotes Made Easy.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Settings', None), ('Display', None)],
         'is_pro':    False,
     },
@@ -497,6 +538,7 @@ PAGES = [
         'title':     'Settings — Behaviour',
         'section':   'Footnotes Made Easy › Settings',
         'url':       '/footnotes-made-easy/settings/behaviour',
+        'description': 'Configure how Footnotes Made Easy combines identical footnotes, positions back-links, and sets processing priority.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Settings', None), ('Behaviour', None)],
         'is_pro':    False,
     },
@@ -506,6 +548,7 @@ PAGES = [
         'title':     'Settings — Suppress',
         'section':   'Footnotes Made Easy › Settings',
         'url':       '/footnotes-made-easy/settings/suppress',
+        'description': 'Suppress footnotes on specific page types, post types, URLs, or categories using the Suppress settings tab.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Settings', None), ('Suppress', None)],
         'is_pro':    False,
     },
@@ -515,6 +558,7 @@ PAGES = [
         'title':     'Settings — Advanced',
         'section':   'Footnotes Made Easy › Settings',
         'url':       '/footnotes-made-easy/settings/advanced',
+        'description': 'Change the opening and closing footnote delimiters and configure advanced options in Footnotes Made Easy.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Settings', None), ('Advanced', None)],
         'is_pro':    False,
     },
@@ -524,6 +568,7 @@ PAGES = [
         'title':     'Tools',
         'section':   'Footnotes Made Easy',
         'url':       '/footnotes-made-easy/tools',
+        'description': 'Export and import plugin settings as JSON, reset to factory defaults, or preserve settings on uninstall.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Tools', None)],
         'is_pro':    False,
     },
@@ -533,6 +578,7 @@ PAGES = [
         'title':     'Multisite',
         'section':   'Footnotes Made Easy',
         'url':       '/footnotes-made-easy/multisite',
+        'description': 'Configure Footnotes Made Easy on a WordPress multisite network — network-managed mode or per-subsite override.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Multisite', None)],
         'is_pro':    False,
     },
@@ -542,6 +588,7 @@ PAGES = [
         'title':     'FAQ',
         'section':   'Footnotes Made Easy',
         'url':       '/footnotes-made-easy/faq',
+        'description': 'Frequently asked questions about Footnotes Made Easy — syntax, styling, block editor support, and more.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('FAQ', None)],
         'is_pro':    False,
     },
@@ -551,6 +598,7 @@ PAGES = [
         'title':     'Changelog',
         'section':   'Footnotes Made Easy',
         'url':       '/footnotes-made-easy/changelog',
+        'description': 'Release history and changelog for Footnotes Made Easy — all versions from 1.0 to the latest release.',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Changelog', None)],
         'is_pro':    False,
     },
@@ -673,6 +721,7 @@ PAGES = [
         'title':     'Bulk Variations for WooCommerce',
         'section':   'Bulk Variations for WooCommerce',
         'url':       '/bulk-variations-for-woocommerce/',
+        'description': 'Documentation for Bulk Variations for WooCommerce — create variation attributes across all variable products in one click.',
         'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', None)],
         'is_pro':    False,
         'visible':   True,
@@ -683,6 +732,7 @@ PAGES = [
         'title':     'Installation',
         'section':   'Bulk Variations for WooCommerce',
         'url':       '/bulk-variations-for-woocommerce/installation',
+        'description': 'Install Bulk Variations for WooCommerce from the WordPress dashboard or manually via FTP. Requires WooCommerce 8.0+.',
         'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Installation', None)],
         'is_pro':    False,
         'visible':   True,
@@ -693,6 +743,7 @@ PAGES = [
         'title':     'Getting Started',
         'section':   'Bulk Variations for WooCommerce',
         'url':       '/bulk-variations-for-woocommerce/getting-started',
+        'description': 'Create your first bulk variation in six steps — set the attribute, term, price adjustment, and run the operation.',
         'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Getting Started', None)],
         'is_pro':    False,
         'visible':   True,
@@ -703,6 +754,7 @@ PAGES = [
         'title':     'Settings',
         'section':   'Bulk Variations for WooCommerce',
         'url':       '/bulk-variations-for-woocommerce/settings',
+        'description': 'Full reference for Bulk Variations for WooCommerce settings — attribute slug, variation term, and price adjustment percentage.',
         'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Settings', None)],
         'is_pro':    False,
         'visible':   True,
@@ -713,6 +765,7 @@ PAGES = [
         'title':     'Shortcode',
         'section':   'Bulk Variations for WooCommerce',
         'url':       '/bulk-variations-for-woocommerce/shortcode',
+        'description': 'Use the [variations] shortcode to display a grid of variation terms on any WordPress page. Cookie selection lasts 30 days.',
         'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Shortcode', None)],
         'is_pro':    False,
         'visible':   True,
@@ -723,6 +776,7 @@ PAGES = [
         'title':     'FAQ',
         'section':   'Bulk Variations for WooCommerce',
         'url':       '/bulk-variations-for-woocommerce/faq',
+        'description': 'FAQ for Bulk Variations for WooCommerce — covers bulk creation, price adjustments, shortcode usage, and HPOS compatibility.',
         'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('FAQ', None)],
         'is_pro':    False,
         'visible':   True,
@@ -733,6 +787,7 @@ PAGES = [
         'title':     'Changelog',
         'section':   'Bulk Variations for WooCommerce',
         'url':       '/bulk-variations-for-woocommerce/changelog',
+        'description': 'Release history for Bulk Variations for WooCommerce.',
         'breadcrumb': [('Home', '/'), ('Bulk Variations for WooCommerce', '/bulk-variations-for-woocommerce/'), ('Changelog', None)],
         'is_pro':    False,
         'visible':   True,
@@ -744,6 +799,7 @@ PAGES = [
         'title':     'Page Categorizer',
         'section':   'Page Categorizer',
         'url':       '/page-categorizer/',
+        'description': 'Documentation for Page Categorizer — assign categories and tags to WordPress Pages with zero configuration.',
         'breadcrumb': [('Home', '/'), ('Page Categorizer', None)],
         'is_pro':    False,
         'visible':   True,
@@ -754,6 +810,7 @@ PAGES = [
         'title':     'Installation',
         'section':   'Page Categorizer',
         'url':       '/page-categorizer/installation',
+        'description': 'Install Page Categorizer from the WordPress dashboard or via FTP. Requires WordPress 6.0 and PHP 7.4.',
         'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Installation', None)],
         'is_pro':    False,
         'visible':   True,
@@ -764,6 +821,7 @@ PAGES = [
         'title':     'Getting Started',
         'section':   'Page Categorizer',
         'url':       '/page-categorizer/getting-started',
+        'description': 'Assign categories and tags to WordPress Pages from the page editor — works with Gutenberg and Classic Editor.',
         'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Getting Started', None)],
         'is_pro':    False,
         'visible':   True,
@@ -774,6 +832,7 @@ PAGES = [
         'title':     'Use Cases',
         'section':   'Page Categorizer',
         'url':       '/page-categorizer/use-cases',
+        'description': 'Practical use cases for Page Categorizer — category listings, archive integration, knowledge bases, and custom shortcodes.',
         'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Use Cases', None)],
         'is_pro':    False,
         'visible':   True,
@@ -784,6 +843,7 @@ PAGES = [
         'title':     'FAQ',
         'section':   'Page Categorizer',
         'url':       '/page-categorizer/faq',
+        'description': 'FAQ for Page Categorizer — covers shared categories, archive pages, compatibility, and data retention after deactivation.',
         'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('FAQ', None)],
         'is_pro':    False,
         'visible':   True,
@@ -794,6 +854,7 @@ PAGES = [
         'title':     'Changelog',
         'section':   'Page Categorizer',
         'url':       '/page-categorizer/changelog',
+        'description': 'Release history for Page Categorizer.',
         'breadcrumb': [('Home', '/'), ('Page Categorizer', '/page-categorizer/'), ('Changelog', None)],
         'is_pro':    False,
         'visible':   True,
@@ -805,6 +866,7 @@ PAGES = [
         'title':     'Debug Log Inspector',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/',
+        'description': 'Documentation for Lumiblog Debug Log Inspector — monitor WordPress debug.log for plugin errors with a real-time admin bar indicator.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', None)],
         'is_pro':    False,
         'visible':   True,
@@ -815,6 +877,7 @@ PAGES = [
         'title':     'Installation',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/installation',
+        'description': 'Install Debug Log Inspector and enable WP_DEBUG_LOG in wp-config.php to start monitoring your WordPress debug log.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Installation', None)],
         'is_pro':    False,
         'visible':   True,
@@ -825,6 +888,7 @@ PAGES = [
         'title':     'Getting Started',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/getting-started',
+        'description': 'Set up Debug Log Inspector in five steps — enable debug logging, add plugins to monitor, and check the admin bar.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Getting Started', None)],
         'is_pro':    False,
         'visible':   True,
@@ -835,6 +899,7 @@ PAGES = [
         'title':     'Adding Plugins to Monitor',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/adding-plugins',
+        'description': 'Add plugins to monitor — set the plugin name, file path, and search terms. Edit, enable, or delete monitored plugins.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Adding Plugins', None)],
         'is_pro':    False,
         'visible':   True,
@@ -845,6 +910,7 @@ PAGES = [
         'title':     'Admin Bar',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/admin-bar',
+        'description': 'Understand the Debug Log Inspector admin bar indicator — green, red, and gray states explained.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Admin Bar', None)],
         'is_pro':    False,
         'visible':   True,
@@ -855,6 +921,7 @@ PAGES = [
         'title':     'Settings',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/settings',
+        'description': 'Configure log scan depth and the only-monitor-active-plugins option in Debug Log Inspector.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Settings', None)],
         'is_pro':    False,
         'visible':   True,
@@ -865,6 +932,7 @@ PAGES = [
         'title':     'Testing',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/testing',
+        'description': 'Step-by-step guide to verify Debug Log Inspector correctly detects errors in your WordPress debug log.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Testing', None)],
         'is_pro':    False,
         'visible':   True,
@@ -875,6 +943,7 @@ PAGES = [
         'title':     'FAQ',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/faq',
+        'description': 'FAQ for Debug Log Inspector — WP_DEBUG setup, search terms, admin bar states, and compatibility.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('FAQ', None)],
         'is_pro':    False,
         'visible':   True,
@@ -885,6 +954,7 @@ PAGES = [
         'title':     'Changelog',
         'section':   'Debug Log Inspector',
         'url':       '/lumiblog-debug-log-inspector/changelog',
+        'description': 'Release history for Lumiblog Debug Log Inspector.',
         'breadcrumb': [('Home', '/'), ('Debug Log Inspector', '/lumiblog-debug-log-inspector/'), ('Changelog', None)],
         'is_pro':    False,
         'visible':   True,
@@ -897,8 +967,29 @@ HOMEPAGE = '''<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AltviseWP Documentation</title>
-<meta name="description" content="Official documentation for all AltviseWP WordPress plugins and products.">
+<title>AltviseWP Docs — WordPress Plugin Documentation</title>
+<meta name="description" content="Official documentation for all AltviseWP WordPress plugins — Footnotes Made Easy, Bulk Variations for WooCommerce, Page Categorizer, and more.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://docs.altvisewp.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="AltviseWP Docs — WordPress Plugin Documentation">
+<meta property="og:description" content="Official documentation for all AltviseWP WordPress plugins — Footnotes Made Easy, Bulk Variations for WooCommerce, Page Categorizer, and more.">
+<meta property="og:url" content="https://docs.altvisewp.com/">
+<meta property="og:site_name" content="AltviseWP Docs">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AltviseWP Docs — WordPress Plugin Documentation">
+<meta name="twitter:description" content="Official documentation for all AltviseWP WordPress plugins.">
+<meta name="twitter:site" content="@altvisewp">
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{{"@context":"https://schema.org","@type":"WebSite","name":"AltviseWP Docs","url":"https://docs.altvisewp.com","description":"Official documentation for AltviseWP WordPress plugins","publisher":{{"@type":"Organization","name":"AltviseWP","url":"https://altvisewp.com"}}}}
+</script>
+
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{font_url}" rel="stylesheet">
@@ -1080,6 +1171,8 @@ def build():
             nav_html        = nav_html,
             is_pro          = page.get('is_pro', False),
             active_url      = page['url'],
+            description     = page.get('description', ''),
+            page_url        = page['url'],
         )
 
         dst = os.path.join(BUILD_DIR, page['dst'])
@@ -1087,6 +1180,22 @@ def build():
         with open(dst, 'w') as f:
             f.write(html)
         print(f'  ✅ {page["dst"]}')
+
+    # ── Sitemap ───────────────────────────────────────────────────────────────
+    sitemap_urls = ['https://docs.altvisewp.com/']
+    for page in PAGES:
+        if page.get('visible', True):
+            sitemap_urls.append(f'https://docs.altvisewp.com{page["url"]}')
+
+    sitemap_xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    sitemap_xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for url in sitemap_urls:
+        sitemap_xml += f'  <url><loc>{url}</loc></url>\n'
+    sitemap_xml += '</urlset>\n'
+
+    with open(f'{BUILD_DIR}/sitemap.xml', 'w') as f:
+        f.write(sitemap_xml)
+    print(f'  ✅ sitemap.xml ({len(sitemap_urls)} URLs)')
 
     print(f'\n✅ Build complete — {len(PAGES) + 1} pages in {BUILD_DIR}/')
 
