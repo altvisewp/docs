@@ -7,7 +7,7 @@ This guide covers everything you need to know to start adding footnotes to your 
 Footnotes Made Easy uses a simple inline marker syntax. To add a footnote, wrap the footnote text in double parentheses anywhere in your content:
 
 ```
-This is your post content.((This is the footnote text.))
+This is your post content ((This is the footnote text)).
 ```
 
 When the post is published or previewed, the plugin:
@@ -25,11 +25,14 @@ You do not need to track numbers manually. The plugin numbers all footnotes sequ
 3. Type your footnote content wrapped in `(( ))`:
 
 ```
-WordPress was first released in 2003.((Matt Mullenweg and Mike Little, May 27, 2003.))
+WordPress powers more than 43 percent ((WordPress Market Share, 2024 )) of all websites on the internet today.
 ```
+![Editor](https://docs.altvisewp.com/images/footnotes-made-easy/block-editor.png)
 
 4. Click **Preview** or **Publish**
 5. The footnote appears as a superscript in the text, with the reference listed at the bottom of the post
+
+![Footnotes List](https://docs.altvisewp.com/images/footnotes-made-easy/footnotes-list.png)
 
 ## Adding multiple footnotes
 
