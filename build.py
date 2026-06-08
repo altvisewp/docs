@@ -161,8 +161,18 @@ PAGE_SEQUENCE = [
 
 # ── Markdown to HTML ──────────────────────────────────────
 def fmt(text):
-    # Images first (before links, to avoid conflict)
-    text = re.sub(r'!\[([^\]]*)\]\(([^)]+)\)', r'<img src="\2" alt="\1" class="doc-img">', text)
+    # Images — support optional caption via ![alt](url "caption")
+    def render_img(m):
+        alt     = m.group(1)
+        src     = m.group(2)
+        caption = m.group(3)
+        if caption:
+            return (f'<figure class="doc-figure">'
+                    f'<img src="{src}" alt="{alt}" class="doc-img">'
+                    f'<figcaption>{caption}</figcaption>'
+                    f'</figure>')
+        return f'<img src="{src}" alt="{alt}" class="doc-img">'
+    text = re.sub(r'!\[([^\]]*)\]\(([^)"]+?)(?:\s+"([^"]+)")?\)', render_img, text)
     text = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', text)
     text = re.sub(r'\*(.+?)\*',     r'<em>\1</em>', text)
     text = re.sub(r'`(.+?)`', lambda m: '<code>' + m.group(1).replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;') + '</code>', text)

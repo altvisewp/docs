@@ -511,11 +511,18 @@ html:not([data-theme]) .icon-moon { display: block; }
   display: block;
 }
 .doc-content .doc-figure {
-  margin: 20px 0;
+  margin: 24px 0;
 }
 .doc-content .doc-figure .doc-img {
   max-width: 100%;
   height: auto;
+}
+.doc-content .doc-figure figcaption {
+  font-size: 13px;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: 8px;
+  font-style: italic;
 }
 .doc-content p .doc-img {
   max-width: 100%;
