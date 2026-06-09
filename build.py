@@ -420,7 +420,8 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
       <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
     </button>
     <a href="/" class="topbar__logo">
-      <span>AltviseWP <strong>Docs</strong></span>
+      <img src="/logo.png" alt="AltviseWP" class="topbar__logo-img">
+      <strong>Docs</strong>
     </a>
     <div class="topbar__search">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
@@ -1035,7 +1036,8 @@ HOMEPAGE = '''<!DOCTYPE html>
       <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M3 4h14v2H3zm0 5h9v2H3zm0 5h11v2H3z"/></svg>
     </button>
     <a href="/" class="topbar__logo">
-      <span>AltviseWP <strong>Docs</strong></span>
+      <img src="/logo.png" alt="AltviseWP" class="topbar__logo-img">
+      <strong>Docs</strong>
     </a>
     <div class="topbar__search">
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="6" cy="6" r="4.5" stroke="currentColor" stroke-width="1.4"/><path d="M10 10l2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
@@ -1177,6 +1179,7 @@ def build():
     shutil.copy('assets/favicon-32.png', f'{BUILD_DIR}/favicon-32.png')
     shutil.copy('assets/apple-touch-icon.png', f'{BUILD_DIR}/apple-touch-icon.png')
     shutil.copy('assets/favicon.ico', f'{BUILD_DIR}/favicon.ico')
+    shutil.copy('assets/logo.png', f'{BUILD_DIR}/logo.png')
     shutil.copy('assets/google5dc94f58813cb64b.html', f'{BUILD_DIR}/google5dc94f58813cb64b.html')
 
     # Build homepage
