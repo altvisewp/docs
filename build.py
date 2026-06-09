@@ -396,7 +396,10 @@ def page_template(title, section, breadcrumb_html, content_html, nav_html, is_pr
 {{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{breadcrumb_ld}]}}
 </script>
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{FONT_URL}" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
@@ -1008,7 +1011,10 @@ HOMEPAGE = '''<!DOCTYPE html>
 {{"@context":"https://schema.org","@type":"WebSite","name":"AltviseWP Docs","url":"https://docs.altvisewp.com","description":"Official documentation for AltviseWP WordPress plugins","publisher":{{"@type":"Organization","name":"AltviseWP","url":"https://altvisewp.com"}}}}
 </script>
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="shortcut icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="{font_url}" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
@@ -1167,6 +1173,10 @@ def build():
     shutil.copytree('assets/js',  f'{BUILD_DIR}/js')
     shutil.copy('assets/.htaccess',   f'{BUILD_DIR}/.htaccess')
     shutil.copy('assets/favicon.svg', f'{BUILD_DIR}/favicon.svg')
+    shutil.copy('assets/favicon.png', f'{BUILD_DIR}/favicon.png')
+    shutil.copy('assets/favicon-32.png', f'{BUILD_DIR}/favicon-32.png')
+    shutil.copy('assets/apple-touch-icon.png', f'{BUILD_DIR}/apple-touch-icon.png')
+    shutil.copy('assets/favicon.ico', f'{BUILD_DIR}/favicon.ico')
     shutil.copy('assets/google5dc94f58813cb64b.html', f'{BUILD_DIR}/google5dc94f58813cb64b.html')
 
     # Build homepage
