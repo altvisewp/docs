@@ -10,8 +10,8 @@ Navigate to **Footnotes → Footnotes Settings → Behaviour** to access these o
 
 Controls where the back link (↩) appears relative to the footnote text:
 
-- **After footnote text** — the back link appears at the end of the footnote reference. This is the standard placement and is recommended for most sites.
-- **Before footnote text** — the back link appears at the beginning of the footnote reference.
+- **End of footnote** — the back link appears at the end of the footnote reference. This is the standard placement and is recommended for most sites.
+- **Beginning of footnote** — the back link appears at the start of the footnote reference, before the text.
 
 ## Combining identical footnotes
 
