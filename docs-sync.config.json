@@ -1,0 +1,15 @@
+{
+  "defaultTemplate": "default",
+  "templates": {
+    "default": "templates/default.md",
+    "installation": "templates/installation.md",
+    "getting-started": "templates/getting-started.md",
+    "pro-installation": "templates/pro-installation.md"
+  },
+  "targets": {
+    "default": "footnotes-made-easy/README.md",
+    "installation": "footnotes-made-easy/installation.md",
+    "getting-started": "footnotes-made-easy/getting-started.md",
+    "pro-installation": "footnotes-made-easy/pro-installation.md"
+  }
+}
