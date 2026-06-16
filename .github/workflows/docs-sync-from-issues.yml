@@ -1,0 +1,69 @@
+name: Sync docs from issues
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  sync-docs:
+    if: contains(github.event.issue.labels.*.name, 'docs-needed')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Sync markdown from issue template
+        id: sync
+        env:
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          DOCS_REVIEWER: lumumbapl
+        run: |
+          node scripts/sync-docs-from-issue.mjs
+
+      - name: Create PR
+        id: pr
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.DOCS_REPO_PAT }}
+          branch: bot/docs-issue-${{ github.event.issue.number }}
+          commit-message: "docs: sync issue #${{ github.event.issue.number }}"
+          title: ${{ steps.sync.outputs.pr_title }}
+          body: ${{ steps.sync.outputs.pr_body }}
+          labels: |
+            docs-needed
+            automated
+          assignees: |
+            lumumbapl
+          reviewers: |
+            lumumbapl
+          delete-branch: true
+
+      - name: Comment on issue with PR link
+        if: steps.pr.outputs.pull-request-url != ''
+        uses: actions/github-script@v7
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        with:
+          github-token: ${{ secrets.DOCS_REPO_PAT }}
+          script: |
+            const issueNumber = Number(process.env.ISSUE_NUMBER);
+            const prUrl = '${{ steps.pr.outputs.pull-request-url }}';
+            const summary = `${{ steps.sync.outputs.summary }}`;
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issueNumber,
+              body: `Docs updated and PR opened: ${prUrl}\n\n${summary}`,
+            });
