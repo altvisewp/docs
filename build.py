@@ -46,7 +46,7 @@ SIDEBAR = [
     {
         'label': 'Footnotes Made Easy Pro',
         'pro': True,
-        'visible': False,
+        'visible': True,
         'items': [
             ('Installation',        'footnotes-made-easy/pro-installation.html',          True),
             ('License Activation',  'footnotes-made-easy/pro-license-activation.html',    True),
@@ -131,7 +131,16 @@ PAGE_SEQUENCE = [
     ('Multisite',           '/footnotes-made-easy/multisite'),
     ('FAQ',                 '/footnotes-made-easy/faq'),
     ('Changelog',           '/footnotes-made-easy/changelog'),
-    # Pro and Account hidden until Pro launch — add back when visible: True
+    # Footnotes Made Easy Pro
+    ('Pro Installation',        '/footnotes-made-easy/pro-installation'),
+    ('Pro License Activation',  '/footnotes-made-easy/pro-license-activation'),
+    ('Pro Citations Overview',      '/footnotes-made-easy/pro-citations-overview'),
+    ('Pro Citations Source Types',  '/footnotes-made-easy/pro-citations-source-types'),
+    ('Pro Citation Styles',         '/footnotes-made-easy/pro-citations-styles'),
+    ('Pro Footnote Library',    '/footnotes-made-easy/pro-library'),
+    ('Pro Gutenberg Sidebar',   '/footnotes-made-easy/pro-gutenberg-sidebar'),
+    ('Pro FAQ',                 '/footnotes-made-easy/pro-faq'),
+    # Account hidden until Pro launch — add back when visible: True
     # BVW
     ('BVW Overview',        '/bulk-variations-for-woocommerce/'),
     ('BVW Installation',    '/bulk-variations-for-woocommerce/installation'),
@@ -632,7 +641,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-installation',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Installation', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-license-activation.md',
@@ -642,7 +651,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-license-activation',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('License Activation', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-citations-overview.md',
@@ -652,7 +661,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-citations-overview',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Citations', None), ('Overview', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-citations-source-types.md',
@@ -662,7 +671,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-citations-source-types',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Citations', None), ('Source Types', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-citations-styles.md',
@@ -672,7 +681,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-citations-styles',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Citations', None), ('Styles', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-library.md',
@@ -682,7 +691,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-library',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Library', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-gutenberg-sidebar.md',
@@ -692,7 +701,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-gutenberg-sidebar',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('Gutenberg Sidebar', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     {
         'src':       'docs/footnotes-made-easy/pro-faq.md',
@@ -702,7 +711,7 @@ PAGES = [
         'url':       '/footnotes-made-easy/pro-faq',
         'breadcrumb': [('Home', '/'), ('Footnotes Made Easy', '/footnotes-made-easy/'), ('Pro', None), ('FAQ', None)],
         'is_pro':    True,
-        'visible':  False,
+        'visible':  True,
     },
     # Account
     {
